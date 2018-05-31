@@ -1,0 +1,11 @@
+/* pages/buys/index.wxss */
+.shops_info{
+  border-top: 30rpx solid #f1f1f3;
+}
+.weui-label{
+  font-size: 28rpx;
+}
+.weui-cell_input {
+  font-size: 28rpx;
+  line-height: 90rpx;
+}

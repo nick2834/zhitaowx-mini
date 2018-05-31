@@ -1,0 +1,57 @@
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+    <form class='reg_form' bindsubmit="formSubmit">
+      <view class="page__bd">
+          <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell weui-cell_input">
+                  <view class="weui-cell__hd">
+                      <view class="weui-label weui-label-icon" style='height:80rpx'>
+                        <image class='wechat_icon' src='../../../img/wechat.png'></image>
+                      </view>
+                  </view>
+                  <view class="weui-cell__bd">
+                      <input class="weui-input" value='微信零钱' disabled/>
+                  </view>
+                  <view class="weui-cell__ft status">
+                      <block wx:if="{{fullname!== ''}}">
+                        <image src='../../../img/true.png'></image>
+                      </block>
+                      <block wx:else>
+                        <image src='../../../img/false.png'></image>                        
+                      </block>
+                  </view>
+              </view>
+          </view>
+          <view class="weui-cells__title">请选择已完成实名认证的提现方式，以免打款失败</view>
+          <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell weui-cell_input weui-cell_vcode">
+                  <view class="weui-cell__hd">
+                      <view class="weui-label">微信昵称</view>
+                  </view>
+                  <view class="weui-cell__bd">
+                      <input class="weui-input" value='{{userInfo.nickname}}' disabled/>
+                  </view>
+              </view>
+              <view class="weui-cell weui-cell_input weui-cell_vcode">
+                  <view class="weui-cell__hd">
+                      <view class="weui-label">认证姓名</view>
+                  </view>
+                  <view class="weui-cell__bd">
+                      <input class="weui-input" placeholder="请输入真实姓名" name="username" value='{{username}}' bindinput='getusername'/>
+                  </view>
+              </view>
+          </view>
+          
+          <view class="weui-btn-area">
+              <button class="weui-btn" type="primary" formType="submit">保存</button>
+          </view>
+      </view>
+    </form>
+</view>
+
+ <dialog id='dialog' wx:if="{{!islogin}}"
+  title='授权登录提示' 
+  content='访问此页面需要你的授权登录' 
+  cancelText='不用了' 
+  confirm='去授权'
+>
+</dialog>

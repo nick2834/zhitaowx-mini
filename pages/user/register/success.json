@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh": false,
+  "navigationBarTitleText": "注册成功",
+  "usingComponents": {
+    "dialog": "../../../components/identity/index"
+  }
+}

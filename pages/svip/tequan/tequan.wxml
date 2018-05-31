@@ -1,0 +1,43 @@
+<scroll-view class='top' scroll-x="true">
+  <block wx:for="{{orientationList}}" wx:key="{{index}}"> 
+    <view class="orientation_city">
+      <view class='scrollToViewFn'  bindtap="scrollToViewFn" data-id="{{item.id}}"></view>
+    <view class='ico'>
+      <image src='{{item.src}}'></image>
+      </view>
+      <text style='{{item.style}}'>{{item.region}}</text>
+    </view> 
+  </block>
+</scroll-view>
+<scroll-view class="content" scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true"> 
+ <view wx:for="{{act_addList}}" wx:key="{{index}}"> 
+  <view class="address_top" id="{{ 'inToView'+item.id}}">
+    <view class='top20rpx'></view>
+    <view class='title'>
+      {{item.region}}
+    </view>
+    <view class='info' wx:for="{{item.infos}}" wx:for-item="cell" wx:key="{{index}}">
+      <view class='y'>
+        <image src='img/icon_y.png'></image>
+      </view>
+      <view class='right_info'>
+        {{cell.info}}
+      </view>
+    </view>
+  </view>
+ </view>
+ 
+ <view class='tishi'>
+  
+  <text>友情提醒：SVIP服务购买后不支持退款。</text>
+ </view>
+</scroll-view> 
+
+
+<dialog id='dialog' wx:if="{{!islogin}}"
+  title='授权登录提示' 
+  content='访问此页面需要你的授权登录' 
+  cancelText='不用了' 
+  confirm='去授权'
+>
+</dialog>

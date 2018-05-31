@@ -1,0 +1,4 @@
+<view class='placeholder_box'>
+  <image class='placeholder' src='../../img/placeholder.png'></image>
+  <slot></slot>
+</view>

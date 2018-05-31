@@ -1,0 +1,130 @@
+<!--pages/svip/buysvip/buysvip.wxml-->
+<view class='tequan6'>
+  <view class='title'>
+    <view class='title_left'> <image src='img/xing.png'></image> SVIP 6大特权</view>
+    <navigator hover-class='navigator-hover' url='../tequan/tequan'>
+     <view class='title_right'>特权详情 <image src='img/jiantou.png'></image></view>
+    </navigator>
+  </view>
+  <view class='tq'>
+    <view class='tq_l'>
+    <view class='tq_img'>
+     <image src='img/icon_flx.png'></image>
+     <view class='new'>新</view>
+    </view>
+    <text class='tq_text'>高额返佣</text>
+    </view>
+    <view class='tq_zhong'>
+      <view class='tq_img'>
+      <image src='img/icon_jl.png'></image>
+      <view class='new'>新</view>
+      </view>
+      <text class='tq_text'>两级推荐奖励</text>
+    </view>
+    <view class='tq_r'>
+      <view class='tq_img'>
+      <image src='img/icon_fy.png'></image>
+      <view class='new'>新</view>
+      </view>
+      <text class='tq_text'>专属客户返佣</text>
+    </view>
+  </view>
+
+
+  <view class='tq'>
+    <view class='tq_l'>
+    <view class='tq_img'>
+     <image src='img/icon_js.png'></image>
+    </view>
+    <text class='tq_text'>极速返佣</text>
+    </view>
+    <view class='tq_zhong'>
+      <view class='tq_img'>
+      <image src='img/icon_kf.png'></image>
+      <view class='new'>新</view>
+      </view>
+      <text class='tq_text'>专属客服</text>
+    </view>
+    <view class='tq_r'>
+      <view class='tq_img'>
+      <image src='img/icon_bs.png'></image>
+      <view class='new'>新</view>
+      </view>
+      <text class='tq_text'>尊贵标识</text>
+    </view>
+  </view>
+</view>
+
+  <view class='kaitong'>
+    <view class='title'>
+      <view class='title_left'> <image src='img/xing.png'></image> 开通服务</view>
+    </view>
+    <view class='huang'>
+      <view class='huang_l'>
+        <view class='huang_l_s'>
+          全年 SVIP
+        </view>
+          <view class='huang_l_x'>
+            限时赠送12个月,共24个月 SVIP
+          </view>
+        </view>
+
+        <view class='huang_r'>
+          <view class='tehui'>特惠价<text>￥</text><text class='rmb'>298</text> </view>
+          <view class='shan'>￥398</view>
+        </view>
+        <view class='title'>
+          <navigator hover-class='none' url='/pages/svip/agreement/index' class='title_right'>SVIP 服务协议  
+            <image style='width:22rpx;height:22rpx;margin-top:38rpx;' src='img/i.png'></image>
+          </navigator>
+        </view>
+ </view>
+</view>
+<view class='Payment'>
+  <view class='title'>
+      <view class='title_left'> <image src='img/xing.png'></image> 支付方式</view>
+  </view>
+  <!-- <view class='title'>
+       <view class='title_left'> 
+       <image style='width:35rpx; height:33rpx;' src='img/icon_wxzf.png'></image> 微信支付
+      </view>
+      <view class='title_right'>
+        <image style='width:30rpx; height:30rpx;margin-top:35rpx;' src='img/icon_zf.png'></image>
+      </view> 
+      
+  </view> -->
+  <radio-group bindchange="radioChange">
+    <label class="weui-cell weui-check__label" wx:for="{{radioItems}}" wx:key="value">
+      <radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
+      <view class="weui-cell__bd"><image style='width:35rpx; height:33rpx;' src='{{item.src}}'></image>{{item.name}}</view>
+      <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
+        <image class="weui-icon-radio" src='../../../img/true.png'></image>
+      </view>
+      <view class="weui-cell__ft weui-cell__ft_in-radio" wx:else>
+        <text class="weui-icon-radio circle" ></text>
+      </view>
+    </label>
+  </radio-group>
+</view>
+
+<view class='bottom'>
+  <form class='reg_form' wx:if="{{checkLabels == 0}}" bindsubmit="formSubmit">
+    总计：<text class='zj'>￥298</text> <text class='yyh'> 已优惠100元</text>   
+    <button class='but' formType="submit">确认支付</button>
+  </form>
+  <form class='reg_form' bindsubmit="formSubmit2" wx:if="{{checkLabels == 1}}">
+    <block>
+      <input class='form_input' name="passcode" placeholder='请输入你的智淘码'></input>
+    </block>
+    <button class='but' formType="submit">确认</button>
+  </form>
+  
+</view>
+
+<dialog id='dialog' wx:if="{{!islogin}}"
+  title='授权登录提示' 
+  content='访问此页面需要你的授权登录' 
+  cancelText='不用了' 
+  confirm='去授权'
+>
+</dialog>

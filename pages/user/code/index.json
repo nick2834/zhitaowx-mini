@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh": false,
+  "navigationBarTitleText": "我的二维码",
+  "usingComponents": {
+    "dialog": "../../../components/identity/index"
+  }
+}

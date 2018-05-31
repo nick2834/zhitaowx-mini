@@ -1,0 +1,81 @@
+page{
+  background: #f3f3f3
+}
+.weui-form-preview__item{
+  font-size: 28rpx;
+}
+.weui-form-preview{
+    margin-bottom: 15rpx;
+}
+.weui-form-preview__label{
+  font-size: 28rpx;
+  color: #5c5c5c
+}
+.weui-form-preview__bd{
+  padding: 55rpx 30rpx;
+}
+.weui-form-preview__value{
+  font-size: 28rpx;
+  color: #5c5c5c
+}
+.weui-form-preview:after{
+  border-bottom: none
+}
+.weui-form-preview__hd:after{
+  left: 0;
+  border-bottom:1rpx solid #e5e5e5;
+
+}
+.weui-form-wxzf{
+  text-align: left;
+  position: relative;
+  height: 80rpx;
+}
+.weui-form-wxzf image{
+  width: 42rpx;
+  height: 42rpx;
+  position: absolute;
+  top: 28rpx;
+}
+.weui-form-wxzf text{
+  margin-left: 60rpx;
+  line-height: 80rpx;
+}
+.weui-form-money{
+  text-align: center;
+  padding:30rpx 0;
+}
+.weui-form-money text{
+  font-size: 80rpx;
+  /* font-weight: bold; */
+  color: #333
+}
+.weui-form-money view{
+  color: #5c5c5c;
+  font-weight: 100;
+  font-size: 30rpx;
+}
+.ques{
+  text-align: center;
+  color: #848484;
+  display:flex;
+  flex-flow:row;
+  font-size: 24rpx;
+}
+.ques view{
+  width:60%;
+  text-align:right;
+  line-height: 90rpx;
+}
+.ques button{
+  background: transparent;
+  color: #327df2;
+  text-align: left;
+  width:40%;
+  padding: 0;
+  font-size: 24rpx;
+  line-height: 90rpx;
+}
+.ques button::after{
+  border: none;
+}

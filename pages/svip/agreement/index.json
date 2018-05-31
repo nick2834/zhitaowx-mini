@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh": false,
+  "navigationBarTitleText": "SVIP协议",
+  "usingComponents": {
+    "dialog": "../../../components/identity/index"
+  }
+}

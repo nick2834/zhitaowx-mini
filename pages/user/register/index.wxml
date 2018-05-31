@@ -1,0 +1,22 @@
+<view class="content">
+    <form class='reg_form' bindsubmit="formSubmit">
+      <view class="input">
+        <view class='get_code'>
+          <input class='weui-input' name="phone" type='number' maxlength="30" placeholder="请输入手机号" bindinput='getusers'>{{phone}}</input>
+          <button class='code actived' bindtap='getCode'>{{getmsg}}</button>
+        </view>
+        <input class='weui-input' type='number' name="identify" maxlength="18" placeholder="输入验证码" bindblur='getidentify'>{{identity}}</input>
+      </view>
+      <view class='agreement'>继续代表你已经同意<navigator hover-class='none' url="/pages/user/useragreement/index" class="weui-agree__link">智淘助手用户注册协议</navigator></view>
+      <button class="form_button active_btn" wx:if="{{types.type === 'zhuce'}}" formType="submit" disabled="{{phone == '' && identify == ''}}">确定</button>
+      <button class="form_button active_btn" wx:else formType="submit"  disabled="{{phone == '' && identify == ''}}">下一步</button>
+    </form>
+</view>
+
+<dialog id='dialog' wx:if="{{!islogin}}"
+  title='授权登录提示' 
+  content='访问此页面需要你的授权登录' 
+  cancelText='不用了' 
+  confirm='去授权'
+>
+</dialog>

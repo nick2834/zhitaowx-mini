@@ -1,0 +1,11 @@
+function getPriceFormat(value) {
+  return parseFloat(isNaN(value) ? 0 : value).toFixed(2);
+}
+//去空格
+function wipeBlank(value) {
+  return value.trim()
+}
+module.exports = {
+  getPriceFormat: getPriceFormat,
+  wipeBlank: wipeBlank
+}

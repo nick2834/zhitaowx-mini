@@ -1,0 +1,38 @@
+<view class="page">
+  <scroll-view scroll-y style="height: 100vh;" bindscrolltoupper="upper" bindscrolltolower="loadMore" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+    <view wx:if="{{recordList.length > 0}}" class='content' wx:for="{{recordList}}" wx:key="{{item.id}}" data-id='{{item.id}}'>
+      <view class='content-item'>
+        <text class='month_title'>{{item.month}}</text>
+        <view class='record_list'>
+          <navigator hover-class='none' class='list' url='/pages/mycount/record/details?orderid={{item.id}}'>
+            <view class='list_content'>
+              <view class='list_l'>
+                <text>{{item.week}}</text>
+                <text>{{item.create_time}}</text>
+              </view>
+              <view class='list_c'>
+                <image class='wxzf' src='../../../img/icon_wxzf@3x.png'></image>
+              </view>
+              <view class='list_r'>
+                <text class='wx_money'>-{{item.money}}</text>
+                <text class='wx_info'>提取{{item.money}}元- {{item.fullname}}（微信零钱）</text>
+              </view>
+            </view>
+            <icon class='iconfont icon-previewright arrow'></icon>
+          </navigator>
+        </view>
+      </view>
+    </view>
+    <view class='content' wx:if="{{recordList.length<=0}}">
+      <placeholder style="width:100%"><view>暂无提现记录</view></placeholder>
+    </view>
+  </scroll-view>  
+</view>
+
+ <dialog id='dialog' wx:if="{{!islogin}}"
+  title='授权登录提示' 
+  content='访问此页面需要你的授权登录' 
+  cancelText='不用了' 
+  confirm='去授权'
+>
+</dialog>

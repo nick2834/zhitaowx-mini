@@ -1,0 +1,111 @@
+page{
+  background: #fff;
+}
+.page{
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+}
+.code_swiper{
+  height: 1041rpx;
+  background: #353535;
+  background: transparent;
+  position: relative;
+  padding-top: 5%;
+  box-sizing: border-box
+}
+.weui-navbar_code{
+  width: 100%;
+  white-space: nowrap; 
+  z-index: 100;
+  background: white;
+  height: 178rpx;
+  background: #fff;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  position: relative
+}
+.weui-navbar_code .default-item{
+  display: inline-block;
+  text-align: center;
+  font-size: 32rpx;
+  box-sizing: border-box;
+  height: 94rpx;
+  margin-right: 30rpx;
+  background: #ccc;
+  margin-top: 62rpx;
+  border-radius: 20rpx;
+  position: relative
+}
+.default-item .icon-queren{
+  background: transparent;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #317df4;
+  left: 0;
+  font-size: 40rpx;
+}
+.weui-navbar-slider{
+ position: absolute;
+ width: 160rpx;
+ height: 2px;
+ content:"";
+ background: #00bba1;
+ bottom: 0px;
+ left: 12.5rpx;
+ transition: transform .3s;
+}
+swiper{
+  height: inherit;
+  padding: 40rpx 0;
+  box-sizing: border-box;
+}
+.image_view{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+  filter: blur(20px)
+}
+.qrcode{
+  width: 80%;
+  height: 90%;
+  border-radius: 25rpx;
+  margin:0 auto;
+  display:block;
+}
+.share_btn{
+  position: absolute;
+  bottom: 30rpx;
+  right: 30rpx;
+  text-align: center;
+  line-height: 90rpx;
+  width: 90rpx;
+  height: 90rpx;
+  background: rgba(255,255,255,.78);
+  border-radius: 50%;
+  padding: 0
+}
+.share_btn .iconfont{
+  color: #3a76ce;
+  font-size: 52rpx;
+}
+.text_info{
+  position:absolute;
+  width:100%;
+  text-align:center;
+  font-size:24rpx;
+  color: #333;
+  top:10rpx;
+}

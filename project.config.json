@@ -1,0 +1,212 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.94",
+	"appid": "wxcf89f5cb7edf3e12",
+	"projectname": "%E6%99%BA%E6%B7%98",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "搜索",
+					"pathName": "pages/search/search",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "新手指引",
+					"pathName": "pages/guide/guide",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "新手指引2",
+					"pathName": "pages/guidelist/index",
+					"query": ""
+				},
+				{
+					"id": 4,
+					"name": "排行",
+					"pathName": "pages/ranking/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的账户",
+					"pathName": "pages/mycount/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "提现记录",
+					"pathName": "pages/mycount/record/record",
+					"query": ""
+				},
+				{
+					"id": 7,
+					"name": "提现状态",
+					"pathName": "pages/mycount/status/msg",
+					"query": "status=1"
+				},
+				{
+					"id": 8,
+					"name": "提现详情",
+					"pathName": "pages/mycount/record/details",
+					"query": "orderid=20180401600355"
+				},
+				{
+					"id": -1,
+					"name": "常见问题",
+					"pathName": "pages/user/question/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "客户",
+					"pathName": "pages/user/custome/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "收入",
+					"pathName": "pages/user/income/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "提现账户",
+					"pathName": "pages/mycount/acount/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/user/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "注册",
+					"pathName": "pages/user/register/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "注册成功",
+					"pathName": "pages/user/register/success",
+					"query": ""
+				},
+				{
+					"id": 16,
+					"name": "详情页",
+					"pathName": "pages/details/index",
+					"query": "item_id=566632585954&item_title=LSY 牛仔外套女春装新款防晒衣韩版bf百搭ins帅气薄外套牛仔衣潮&item_price=168&item_pic=https://img.alicdn.com/bao/uploaded/i3/726303113/TB2c0S0hQKWBuNjy1zjXXcOypXa_!!726303113.jpg&coupon_id=7a2809049cb94ed6a2bf3f113af8edf7&coupon_amount=满6.00元减3元"
+				},
+				{
+					"id": -1,
+					"name": "搜素详情页",
+					"pathName": "pages/search/list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "二维码",
+					"pathName": "pages/user/code/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "现金提现",
+					"pathName": "pages/mycount/withdraw/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "SVIP",
+					"pathName": "pages/svip/svip",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "SVIP购买",
+					"pathName": "pages/svip/buysvip/buysvip",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "协议",
+					"pathName": "pages/svip/agreement/index",
+					"query": ""
+				},
+				{
+					"id": 23,
+					"name": "11111",
+					"pathName": "pages/svip/tequan/tequan",
+					"query": ""
+				},
+				{
+					"id": 23,
+					"name": "授权",
+					"pathName": "pages/auth/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "协议",
+					"pathName": "pages/svip/agreement/index",
+					"query": ""
+				},
+				{
+					"id": 25,
+					"name": "商品",
+					"pathName": "pages/shops/index",
+					"query": "id=2&title=美国770家用全自动智能吸尘扫地机器人吸尘器品牌直销包邮"
+				},
+				{
+					"id": -1,
+					"name": "购买",
+					"pathName": "pages/buys/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "11111",
+					"pathName": "pages/guide/guide",
+					"query": "id=7"
+				}
+			]
+		}
+	}
+}

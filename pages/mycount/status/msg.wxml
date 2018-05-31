@@ -1,0 +1,35 @@
+<view class="page">
+    <view class="weui-msg">
+        <view class="weui-msg__icon-area">
+            <image wx:if="{{normal}}" class='status_icon'src='../../../img/icon_txcg@3x.png'></image>
+            <image wx:else class='status_icon'src='../../../img/icon_clz@3x.png'></image>
+        </view>
+        <view class="weui-msg__text-area" wx:if="{{identityCode <= 2}}">
+            <view class="weui-msg__title stauts_title">提现成功！</view>
+            <view class="weui-msg__desc">提现后一般实时到账，具体到账时间以微信处理时间为准</view>
+            <view class="weui-msg__desc status_msg">申请成功后请至微信零钱账户查看</view>
+        </view>
+        <view class="weui-msg__text-area" wx:else>
+            <view class="weui-msg__title stauts_title">处理中</view>
+            <view class="weui-msg__desc">渠道用户提现订单每周二后台统一审核处理，请耐心等候</view>
+            <view class="weui-msg__desc status_msg">审核成功后请至微信零钱账户查看</view>
+        </view>
+        <view class="weui-msg__extra-area">
+            <view class="weui-footer">
+                <view class="weui-footer__text footer">
+                  <navigator url='/pages/user/question/index' hover-class='none' class='que'>常见问题</navigator>
+                  <view class='line'>|</view>
+                  <navigator url='/pages/mycount/record/record' hover-class='none' class='rec'>提现记录</navigator> 
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+ <dialog id='dialog' wx:if="{{!islogin}}"
+  title='授权登录提示' 
+  content='访问此页面需要你的授权登录' 
+  cancelText='不用了' 
+  confirm='去授权'
+>
+</dialog>

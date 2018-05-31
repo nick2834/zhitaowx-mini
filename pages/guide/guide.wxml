@@ -1,0 +1,45 @@
+<view class="page">
+  <block wx:if="{{!flag}}">
+    <image wx:for="{{itemlist.listsrc}}" wx:key="{{index}}" src='{{item}}'mode='widthFix'style="width:100%;font-size:0"></image> 
+  </block>
+  <block wx:else>
+    <video hidden='{{isVideo}}' id="guide_video" src="{{itemlist.videosrc}}" autoplay='true' controls style='height:200px'></video>
+    <scroll-view  scroll-y='true' style='height:{{windowHeight - 160}}px' hidden='{{isVideo}}'>
+      <view class='guide_box'>
+        <view class='controle_btn'>
+          <view class='btn_left'>
+            <icon class='iconfont icon-play'>{{itemlist.playback}}</icon>
+          </view>
+          <button class='btn_right' open-type='share'>
+            <icon class='iconfont icon-fenxiang share_icon'></icon>
+            <!-- <view>分享</view> -->
+          </button>
+        </view>
+        <view class='guide_desc'>
+          <view class='desc_title'>{{itemlist.title}}</view>
+          <text class='desc'>{{itemlist.info}}</text>
+        </view>
+        <view class='more'>
+          <view class='more_title'>更多指引</view>
+          <view class='more_item'>
+            <view class='items' wx:for="{{guideList}}" wx:key="{{item.id}}" data-idx='{{item.id}}' bindtap='handleChange'>
+              <image src='{{item.imagesrc}}'></image>
+              <text>{{item.title}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </block>
+  <navigator class='share_btn' wx:if="{{isShare}}" hover-class='none' open-type='switchTab' url='/pages/index/index'>
+    <icon class='iconfont icon-home'></icon>
+  </navigator>
+</view>
+
+ <dialog id='dialog' wx:if="{{!islogin}}"
+  title='授权登录提示' 
+  content='访问此页面需要你的授权登录' 
+  cancelText='不用了' 
+  confirm='去授权'
+>
+</dialog>

@@ -1,0 +1,26 @@
+<view class="page">
+  <view class='search-box'>
+    <view class='search'>
+      <input class='search_input' bindinput='changeInput' focus="true" placeholder="2018新款女装" confirm-type='search' bindconfirm="bindconfirm" bindfocus='setStorage'>
+        <icon class='iconfont icon-sousuo search_icon'></icon>
+        <view class='search_btn' bindtap='searchGoods'>
+          搜优惠券
+        </view>
+      </input>
+    </view>
+  </view>
+  <view class='search_title'>
+    <view>历史搜索</view>
+    <view bindtap='clearStorage'>清空</view>
+  </view>
+  <view class='search_list'>
+    <navigator hover-class='none' url='/pages/search/list?name={{item}}' class='list_item' style='max-width:{{windowWidth/2 - 57}}px' wx:for="{{searchList}}" wx:key="{{index}}" data-idx='{{index}}'>{{item}}</navigator>
+  </view>
+</view>
+<!-- <dialog id='dialog' wx:if="{{!islogin}}"
+  title='授权登录提示' 
+  content='访问此页面需要你的授权登录' 
+  cancelText='不用了' 
+  confirm='去授权'
+>
+</dialog> -->

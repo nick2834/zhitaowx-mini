@@ -1,0 +1,9 @@
+{
+  "navigationBarBackgroundColor": "#317EF3",
+  "navigationBarTitleText": "个人中心",
+  "backgroundTextStyle": "light",
+  "disableScroll": false,
+  "usingComponents": {
+    "dialog": "../../components/identity/index"
+  }
+}

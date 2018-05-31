@@ -1,0 +1,19 @@
+<view class="page">
+  <view class='stauts_box'>
+    <image class='status_icon'src='../../../img/icon_txcg@3x.png'></image>
+    <view class='stauts_title'>注册 VIP 成功</view>
+    <text class='status_info'>想要赚取更高额佣金，请升级为SVIP</text>
+  </view>
+  <view class='btn_group'>
+    <navigator hover-class='none' class="weui-btn tovip" url='/pages/svip/buysvip/buysvip'>立即升级SVIP</navigator>
+    <navigator hover-class='none'  class="weui-btn checkvip" url='/pages/svip/tequan/tequan'>查看SVIP特权</navigator>
+  </view>
+</view>
+
+<dialog id='dialog' wx:if="{{!islogin}}"
+  title='授权登录提示' 
+  content='访问此页面需要你的授权登录' 
+  cancelText='不用了' 
+  confirm='去授权'
+>
+</dialog>

@@ -1,0 +1,148 @@
+<wxs module="filter" src="../../filter/filter.wxs"></wxs>
+<block wx:if="{{!isLoading}}">
+  <loading hidden="{{isLoading}}">正在拼命加载</loading>
+</block>
+<block wx:else>
+  <view class='pages falsePages' wx:if="{{!goods_button && isFlag}}">
+    <image mode='widthFix' class='falsePic' src='../../img/home_01.png'></image>
+    <image mode='widthFix' class='falsePic' src='../../img/home_02.png'></image>
+    <view class='shop_boxing'>
+      <navigator class='shop_details' hover-class='none' url='/pages/shops/index?id=1&title=美国IRON全自动进口扫地机器人家用智能扫地机拖扫吸一体机扫地机'>
+        <image src='../../img/shop_03.png' mode='widthFix'></image>
+        <view class='shop_titlesss'>美国IRON全自动进口扫地机器人家用智能扫地机拖扫吸一体机扫地机</view>
+        <view class='price_boxesssss'>
+          <view class='shop_bottom'><image src='../../img/shop_icon.png'></image><text>￥2388.00</text></view>
+          <icon class='iconfont icon-fenxiang'></icon>
+        </view>
+      </navigator>
+      <navigator class='shop_details' hover-class='none' url='/pages/shops/index?id=2&title=美国770家用全自动智能吸尘扫地机器人吸尘器品牌直销包邮'>
+        <image src='../../img/shop_04.png' mode='widthFix'></image>
+        <view class='shop_titlesss'>美国770家用全自动智能吸尘扫地机器人吸尘器品牌直销包邮</view>
+        <view class='price_boxesssss'>
+          <view class='shop_bottom'><image src='../../img/shop_icon.png'></image><text>￥4399.00</text></view>  
+          <icon class='iconfont icon-fenxiang'></icon>      
+        </view>
+      </navigator>
+      <navigator class='shop_details' hover-class='none' url='/pages/shops/index?id=3&title=美国t扫地机器人超薄智能家用全自动充电吸尘器'>
+        <image src='../../img/shop_01.png' mode='widthFix'></image>
+        <view class='shop_titlesss'>美国t扫地机器人超薄智能家用全自动充电吸尘器 527e</view>
+        <view class='price_boxesssss'>
+          <view class='shop_bottom'><image src='../../img/shop_icon.png'></image><text>￥2599.00</text></view>
+          <icon class='iconfont icon-fenxiang'></icon>        
+        </view>
+      </navigator>
+      <navigator class='shop_details' hover-class='none' url='/pages/shops/index?id=4&title=美国扫地机器人智能进口家用wifi全自动一体机擦地机'>
+        <image src='../../img/shop_02.png' mode='widthFix'></image>
+        <view class='shop_titlesss'>美国扫地机器人智能进口家用wifi全自动一体机擦地机</view>
+        <view class='price_boxesssss'>
+          <view class='shop_bottom'><image src='../../img/shop_icon.png'></image><text>￥2888.00</text></view>
+          <icon class='iconfont icon-fenxiang'></icon>
+        </view>
+      </navigator>
+    </view>
+    <text class='last_nomore'>没有更多商品了...</text>
+  </view>
+  <view class='page' wx:else>
+      <scroll-view scroll-y style="height: 100vh;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-top="{{scrollTop}}">
+        <!-- 头部 -->
+        <view class='top'>
+          <view class='logo'> 
+            <image lazy-load src='../../img/slogon_logo.png'></image>
+          </view>
+          <!-- 固定搜索框 -->
+          <navigator hover-class='none' url='/pages/search/search' class='search_box {{isBind?"search_fixed":""}}'>
+            <view class='search_boxing'>
+              <view class='search'> 
+                <input class='search_input' bindinput='toSearch' placeholder-class="phcolor" disabled placeholder="搜宝贝 领优惠券 拿返佣">
+                  <icon class='iconfont icon-sousuo search_icon'></icon>
+                  <view class='search_btn'>搜优惠券</view>
+                </input>
+              </view>              
+            </view>
+          </navigator>
+          <navigator class='check_guide' hover-class='none' url='/pages/guidelist/index'>
+            <text>查看教程</text>
+            <image src='../../img/btn_kz@2x.png'></image>
+          </navigator>
+        </view>
+        <view class='guanggao' hidden='{{tabbarFix}}'>
+          <navigator hover-class='none' class='lab_box' url='/pages/guide/guide?id=7'>
+            <image src='../../img/bg_sj@2x.png'></image>
+          </navigator>
+          <view class='kuaibao'>
+            <image class='icon_ztkb' src='../../img/icon_ztkb.png'></image>
+            <view class='roll_box' wx:if="{{dynamicList.length > 0}}">
+              <view class="border3">
+                <block wx:for="{{dynamicList}}" wx:key="{{item.id}}" wx:for-index="idx" data-idx="{{item.id}}">
+                  <view class='view-item'>
+                    <view class='name_time'>
+                      <text class='name'>{{item.nickname}}</text>
+                      <text class='time'>{{item.timeqian}}</text>
+                    </view>
+                    <view class='gg_wenzi'>{{item.miaoxu}}</view>   
+                  </view>
+                </block>   
+              </view>
+            </view>
+            <view class='roll_box' wx:else style='background:#e9e9e9'></view>
+          </view>
+        </view>
+        <!-- 优选 -->
+        <view class='youxuan'>
+          <image class='youxuan_biaoti' hidden='{{tabbarFix}}' src='../../img/youxuan.jpg'></image>
+          <view class='shop_list' id='tabbar'>
+            <scroll-view scroll-x="true" class='tab-h {{tabbarFix?"tabbar_fixed":""}}' style='top:136rpx' scroll-left="{{scrollLeft}}">
+                <view wx:for="{{categoryList}}" wx:key="{{item.id}}" data-sortid='{{item.id}}' class="tab-item {{currentTab==index?'active':''}}"  data-current="{{index}}" bindtap="swichNav">{{item.name}}</view>
+            </scroll-view>
+            <view class='goodslist_box {{tabbarFix?"goodslist_roller_box":""}}' wx:if="{{goodsList.length > 0}}" style="min-height:100vh">
+              <navigator wx:for="{{goodsList}}" wx:key="{{item.item_id}}" data-id='{{item.item_id}}' class='item_list' hover-class='weui-cell_active' class="item-ans" url='/pages/details/index?item_id={{item.item_id}}&item_title={{item.item_title}}&item_price={{item.item_price}}&item_pic={{item.item_pic}}&coupon_info={{item.item_coupon.info}}&coupon_id={{item.item_coupon.coupon_id}}&coupon_amount={{item.item_coupon.amount}}&item_coupon={{item.item_coupon}}'>
+                <view  class='shop_img' style='background-image:url("../../img/placeholder.png")'>
+                  <image lazy-load src='{{filter.wipeBlank(item.item_pic)}}'></image>
+                </view>
+                <view class='shop_info'>
+                  <view class='shop_name'>
+                    <!-- 淘宝图标 -->
+                    <block wx:if="{{item.item_type == 1}}">
+                      <image src='../../img/taobao.png'></image>
+                    </block>
+                    <!-- 天猫图标 -->
+                    <block wx:else>
+                      <image src='../../img/tm.png'></image>
+                    </block>
+                    <text>{{item.item_title}}</text>
+                  </view>
+                  <view class='xianjia'>现价 ￥ {{item.item_price}} <text>月销 {{item.item_volume}}件</text></view>
+                  <view class='quanhou'>券后价 <text>￥ {{item.item_price_coupons}}</text> </view>
+                  <view class='jindutiao progress_box' wx:if="{{item.item_coupon}}">
+                      <text class='myAmount'>券 <text>{{item.item_coupon.amount}}元</text> </text>
+                  </view>
+                </view>
+                <view class='share_group'>
+                  <view class='share_btn'>
+                    <icon class='iconfont icon-fenxiang'></icon>
+                  </view>
+                  <view class='share_msg'>赚 ￥{{item.item_subsidy}}</view>
+                </view>
+              </navigator>
+              <view class='zuihou' wx:if="{{IslastPage}}"> 
+                <icon class='iconfont icon-smile'></icon>
+                <view>我是有底线的</view>
+              </view>
+            </view>
+            <view class='goodslist_box' wx:else>
+              <placeholder style="width:100%"><view class='styleFontSize'>暂时没有数据哦</view></placeholder>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+  </view>
+</block>
+<!-- <view class='{{islogin?"wx_dialog_container":""}}'>
+    <view class='wx-mask' catchtap='_cancelEvent'></view>
+    <view class='wx-dialog'>
+        <image src='../../img/noIdentity.png'>
+          <button open-type='getUserInfo' bindgetuserinfo='bindgetuserinfo'></button>
+        </image>
+    </view>
+</view> -->
+<!-- <button hover-class='none' class='wx_dialog_button__block {{islogin?"wx_dialog_buttons":""}}' open-type='getUserInfo' bindgetuserinfo='bindgetuserinfo'></button> -->

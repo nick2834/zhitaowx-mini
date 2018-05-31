@@ -1,0 +1,63 @@
+<view class="page" wx:if="{{has}}">
+    <view class="page__bd">
+        <view class="weui-form-preview">
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                  <view class='weui-form-wxzf'>
+                    <image src='../../../img/icon_wxzf@3x.png'></image>
+                    <text class=''>微信零钱</text>
+                  </view>
+                  <view class='weui-form-money'>
+                      <text>{{extractDetails.money}}</text>
+                      <view wx:if="{{status === 0}}">审核中</view>
+                      <view wx:if="{{status === 1}}">提现成功</view>
+                      <view wx:if="{{status === 2}}">提现失败</view>
+                      <view wx:if="{{status === 3}}">正在打款中</view>
+                      <view></view>
+                  </view>
+                </view>
+            </view>
+            <view class="weui-form-preview__bd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">提取金额</view>
+                    <view class="weui-form-preview__value">{{extractDetails.money}}元</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">手续费（限时免费）</view>
+                    <view class="weui-form-preview__value">{{extractDetails.brokerage}}元</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">收款方式</view>
+                    <view class="weui-form-preview__value">{{extractDetails.paymode}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">收款账户</view>
+                    <view class="weui-form-preview__value">{{extractDetails.accounts}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">收款人姓名</view>
+                    <view class="weui-form-preview__value">{{extractDetails.fullname}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">提取时间</view>
+                    <view class="weui-form-preview__value">{{extractDetails.create_time}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">到账时间</view>
+                    <view class="weui-form-preview__value">{{extractDetails.last_time}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='ques'>
+      <view>对此订单有疑惑，请联系</view>  
+      <button open-type='contact'>在线客服</button>
+    </view>
+</view>
+ <dialog id='dialog' wx:if="{{!islogin}}"
+  title='授权登录提示' 
+  content='访问此页面需要你的授权登录' 
+  cancelText='不用了' 
+  confirm='去授权'
+>
+</dialog>

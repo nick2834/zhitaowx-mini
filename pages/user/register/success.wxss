@@ -1,0 +1,54 @@
+.stauts_box{
+  margin-top: 100rpx;
+  text-align: center;
+  width: 100%;
+}
+.status_icon{
+  width: 136rpx;
+  height: 136rpx;
+}
+.stauts_title{
+  color: #317ef3;
+  font-size: 36rpx;
+  line-height: 80rpx;
+}
+.status_info{
+  display: block;
+  margin: 65rpx 0 60rpx 0;
+  padding: 0 100rpx;
+  text-align: center;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  font-size: 32rpx;
+  color: #858585
+}
+
+.btn_group{
+  padding: 0 30rpx;
+}
+.btn_group .weui-btn{
+  font-size: 30rpx;
+}
+navigator.weui-btn{
+  border-radius: 5px;
+  padding: 0 14px;
+  box-sizing:border-box;
+  font-size:18px;
+  text-align:center;
+  text-decoration:none;
+  /* line-height:2.55555556; */
+}
+.tovip{
+  background: #317df4;
+  color: #fff;
+  font-size: 30rpx;
+  line-height: 90rpx;
+  height: 90rpx
+}
+.checkvip{
+  background: #f9f9f9;
+  color: #828282;
+  border: 1px solid #f2f2f2;
+  line-height: 90rpx;
+  height: 90rpx
+}

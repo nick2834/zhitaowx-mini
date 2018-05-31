@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh": false,
+  "navigationBarTitleText": "我的账户",
+  "usingComponents": {
+    "dialog": "../../components/identity/index"
+  }
+}

@@ -1,0 +1,163 @@
+ <dialog id='dialog' wx:if="{{!islogin}}"
+  title='授权登录提示' 
+  content='访问此页面需要你的授权登录' 
+  cancelText='不用了' 
+  confirm='去授权'
+>
+</dialog>
+<block wx:if="{{!isLoading}}">
+  <view class='page_box'>
+     <loading hidden="{{isLoading}}">正在拼命加载</loading> 
+  </view>
+</block>
+<block wx:else>
+  <view class='pages falsePages' wx:if="{{!goods_button}}">
+    <view class='nouser norank'>
+      <image class='falsePages_img' mode='widthFix'  src='../../img/norank.png'></image>
+      <view class='nofont'>当前还没有排行榜呢！</view>
+    </view>
+  </view>
+  <view class='page' wx:else>
+    <view class='head'>
+      <canvas canvas-id="canvas1" class="canvas-box"></canvas>
+      <view class='head_message'>
+        <view class='msg msg_l'>
+            <view>淘宝客户数</view>
+            <view>{{expendList.taobao}}</view>
+        </view>
+        <view class='msg msg_r'>
+            <view>智淘客户数</view>
+            <view>{{expendList.zhitao}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='tab-item'>
+      <view class="tab_items {{tabArr.curHdIndex=='1' || tabdefault=='1' ? 'active' : ''}}" id="1" data-id="1" bindtap='getTabs'>赚钱榜/TOP10
+        <view class='tab_line' wx:if="{{tabArr.curHdIndex=='1' || tabdefault=='1'}}"></view>
+      </view>
+      <view class="tab_items {{tabArr.curHdIndex=='2'? 'active' : ''}}" id="2" data-id="2" bindtap='getTabs'>拓客榜/TOP10
+        <view class='tab_line' wx:if="{{tabArr.curHdIndex=='2'}}"></view>
+      </view>
+    </view>
+    <scroll-view scroll-y style="height: {{windowHeight}}px;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+      <view class='users' wx:if="{{tabArr.curBdIndex=='1' ||  tabdefault=='1'}}">
+        <view class='user_left'>
+          <open-data class='tx ranktx' type="userAvatarUrl"></open-data>
+          <view class='user_text'>
+            <open-data class='userNo' type="userNickName"></open-data>
+            <view wx:if="{{identityCode < 0}}" class='userNo'>授权登录查看名次</view>
+            <view wx:else class='userNo'>{{isME.mingci}}</view>
+          </view>
+        </view>
+        <view class='user_right'>
+          <text wx:if="{{identityCode > 0}}">{{isME.money}}</text>
+        </view>
+      </view>
+      <view class='users' wx:if="{{tabArr.curBdIndex=='2'}}">
+        <view class='user_left'>
+          <open-data class='tx ranktx' type="userAvatarUrl"></open-data>
+          <view class='user_text'>
+            <open-data class='userNo' type="userNickName"></open-data>
+            <view wx:if="{{identityCode < 0}}" class='userNo'>授权登录查看名次</view>
+            <view wx:else class='userNo'>{{meExpend.mingci}}</view>
+          </view>
+        </view>
+        <view class='user_right'>
+          <text wx:if="{{identityCode > 0}}">{{meExpend.top}}</text>
+        </view>
+      </view>
+      <view class="content-item {{tabArr.curBdIndex=='1' ||  tabdefault=='1'? 'active' : ''}}">
+        <view class='rank_head'>
+          <view class='title_left'>
+            <image src='../../img/seg_bd@2x.png'></image>
+            <text>本月榜单</text>
+          </view>
+          <picker class='title_right' bindchange="bindPickerChange" value="{{index}}" range="{{monthArray}}">
+            <button hover-class='none' class='pickerBtn' type="default"><image src='../../img/btn_xl@2x.png'></image>{{thisMonth}}</button>
+          </picker>
+        </view>
+        <view class='rank_content'>
+          <block wx:if="{{earnListItem.length > 0}}">
+            <view class='rank_list' wx:for="{{earnListItem}}" wx:key="{{index}}">
+              <view class='rank_list_item'>
+                <block wx:if="{{index ==0}}">
+                  <image class='rank_card' src='../../img/icon_jin@2x.png'></image>
+                </block>
+                <block wx:if="{{index ==1}}">
+                  <image class='rank_card' src='../../img/icon_yin@2x.png'></image>
+                </block>
+                <block wx:if="{{index ==2}}">
+                  <image class='rank_card' src='../../img/icon_tong@2x.png'></image>
+                </block>
+                <block wx:if="{{index >= 3}}">
+                  <text class='rank_nums'>{{index+1}}</text>
+                </block>
+                <view class='rank_desc'>
+                  <image class='rank_avatar' src='{{item.avatar}}'></image>
+                  <text class='rank_name'>{{item.nickname}}</text>
+                  <text class='rank_money'>{{item.money}}</text>
+                </view>
+              </view>
+            </view> 
+          </block>
+          <block wx:else>
+            <view class='rank_list' style='padding:0'>
+              <placeholder style="width:100%"><view class='styleFontSize'>本月暂无排行榜</view></placeholder>       
+            </view>
+          </block>  
+        </view>
+      </view> 
+      <view class="content-item {{tabArr.curBdIndex=='2'? 'active' : ''}}">
+        <view class='rank_head'>
+          <view class='title_left'>
+            <image src='../../img/seg_bd@2x.png'></image>
+            <text>本月榜单</text>
+          </view>
+          <view class='title_right' bindtap='showPicker'>
+            <picker class='title_right' bindchange="bindPickerChange" value="{{index}}" range="{{monthArray}}">
+              <button hover-class='none' class='pickerBtn' type="default"><image src='../../img/btn_xl@2x.png'></image>{{thisMonth}}</button>
+            </picker>
+          </view> 
+        </view>
+        <view class='rank_content'>
+          <block wx:if="{{listItem.length > 0}}">
+            <view class='rank_list' wx:for="{{listItem}}" wx:key="{{index}}">
+              <view class='rank_list_item'>
+                <block wx:if="{{index ==0}}">
+                  <image class='rank_card' src='../../img/icon_jin@2x.png'></image>
+                </block>
+                <block wx:if="{{index ==1}}">
+                  <image class='rank_card' src='../../img/icon_yin@2x.png'></image>
+                </block>
+                <block wx:if="{{index ==2}}">
+                  <image class='rank_card' src='../../img/icon_tong@2x.png'></image>
+                </block>
+                <block wx:if="{{index >= 3}}">
+                  <text class='rank_nums'>{{index+1}}</text>
+                </block>
+                <view class='rank_desc'>
+                  <image class='rank_avatar' src='{{item.avatar}}'></image>
+                  <text class='rank_name'>{{item.nickname}}</text>
+                  <text class='rank_money'>{{item.top}}</text>
+                </view>
+              </view>
+            </view> 
+          </block> 
+          <block wx:else>
+            <view class='rank_list' style='padding:0'>
+              <placeholder style="width:100%"><view class='styleFontSize'>本月暂无排行榜</view></placeholder>      
+            </view>
+          </block>   
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</block>
+<dialog id='dialog' wx:if="{{identityCode < 0}}"
+  title='警告' 
+  content='访问此页面需要你的授权' 
+  cancelText='不用了' 
+  confirm='去授权'
+  bind:cancelEvent="_cancelEvent"  
+  bind:confirmEvent="_confirmEvent">
+</dialog>

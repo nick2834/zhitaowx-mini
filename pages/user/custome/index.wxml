@@ -1,0 +1,55 @@
+<wxs module="filter" src="../../../filter/filter.wxs"></wxs>
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-tab">
+            <view class="weui-navbar" style='background:white'>
+                <block wx:for="{{tabs}}" wx:key="*this">
+                    <view id="{{index}}" data-id='{{index}}' class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                        <view class="weui-navbar__title">{{item}}</view>
+                    </view>
+                </block>
+            </view>
+            <scroll-view class="weui-tab__panel" style="height:{{scrollheight}} + 80px" scroll-top="{{scrolltop}}" bindscroll="scroll" bindscrolltolower="onReachBottom" bindscrolltoupper="refresh" scroll-y>
+              <view class="weui-tab__content">
+                <block wx:if="{{customeList.length >0}}">
+                  <view class='weui-tab-list' wx:for="{{customeList}}" wx:key="{{index}}">
+                    <image class='user_avator' src='{{item.avatar}}'></image>
+                    <view class='user_content'>
+                      <text class='username'>{{item.nickname}}</text>
+                      <text class='user_tags tags_vip' wx:if="{{item.type < 1}}">客户</text>
+                      <text class='user_tags tags_vip' wx:elif="{{item.type === 1}}">VIP</text>
+                      <text class='user_tags tags_svip' wx:elif="{{item.type === 2}}">SVIP</text> 
+                      <text class='user_tags tags_tubu' wx:else>渠道</text> 
+                      <view class='level' wx:if="{{item.type <= 1}}">
+                        <text wx:if="{{item.toptype === 1}}">上级: VIP: {{item.topnickname}}</text>
+                        <text wx:if="{{item.toptype === 2}}">上级: SVIP: {{item.topnickname}}</text>
+                        <text wx:if="{{item.toptype === 3}}">上级: 渠道: {{item.topnickname}}</text>
+                      </view>
+                      <view class='custom'>
+                        <text>直接客户：{{item.direct}}</text>
+                      </view>
+                      <view class='money'>
+                        <text>我的佣金：{{item.money}}</text>
+                      </view>
+                    </view>
+                    <text class='user_time'>{{item.create_time}}</text>
+                  </view>
+                </block>
+                <block wx:else>
+                  <view class='weui-tab-list'>
+                    <placeholder style='width:100%'><view>继续加油，暂时还没有客户</view></placeholder>
+                  </view>
+                </block>
+              </view>
+            </scroll-view>
+        </view>
+    </view>
+</view>
+
+<dialog id='dialog' wx:if="{{!islogin}}"
+  title='授权登录提示' 
+  content='访问此页面需要你的授权登录' 
+  cancelText='不用了' 
+  confirm='去授权'
+>
+</dialog>

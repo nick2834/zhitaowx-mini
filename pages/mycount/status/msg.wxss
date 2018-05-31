@@ -1,0 +1,71 @@
+page{
+    background-color: #FFFFFF;
+}
+.stauts_box{
+  margin-top: 100rpx;
+  text-align: center;
+  width: 100%;
+}
+.status_icon{
+  width: 186rpx;
+  height: 186rpx;
+}
+.stauts_title{
+  color: #317ef3;
+  font-size: 40rpx;
+  line-height: 80rpx;
+}
+.status_info{
+  display: block;
+  margin-top: 65rpx;
+  padding: 0 100rpx;
+  text-align: center;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  font-size: 35rpx;
+  color: #656565
+}
+.status_msg{
+  text-align: center;
+  color: #757575;
+  margin-top: 30rpx;
+  font-size: 33rpx;
+}
+.weui-msg__desc{
+  padding: 0 100rpx;
+  color: #333
+}
+.footer{
+  width: 60%;
+  display: flex;
+  color: #777;
+  justify-content: space-between;
+  margin: 0 auto;
+  position: relative
+}
+.footer navigator{
+  width: 50%;
+  font-weight: 100;
+  font-size: 24rpx;
+  box-sizing: border-box
+}
+.line{
+  width: 1rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%)
+}
+.que,.rec{
+  padding: 30rpx;
+}
+.que{
+  text-align: right;
+}
+.rec{
+  text-align: left;
+}
+.status_msg{
+  font-size: 28rpx;
+  color: #757575
+}

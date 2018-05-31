@@ -1,0 +1,6 @@
+{
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "placeholder": "../../components/placeholder/index"
+  }
+}

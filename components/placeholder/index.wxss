@@ -1,0 +1,11 @@
+.placeholder_box{
+  margin-top: 140rpx;
+  text-align: center;
+  color: #d0d0d0;
+  width: 100%;
+}
+.placeholder{
+  width: 260rpx;
+  height: 210rpx;
+  opacity: .5
+}

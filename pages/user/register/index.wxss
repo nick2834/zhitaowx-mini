@@ -1,0 +1,66 @@
+page{
+
+}
+.reg_form{
+  display: block;
+  padding: 0 30rpx;
+  margin-top: 118rpx;
+}
+.get_code{
+  position: relative;
+}
+.code{
+  position: absolute;
+  top: 14rpx;
+  right: 14rpx;
+  height: 60rpx;
+  width: 170rpx;
+  font-size: 24rpx;
+  padding: 0;
+  background: transparent;
+  line-height: 60rpx;
+  color: #317df3
+}
+.code.actived{
+  color: #317df3
+}
+.weui-input{
+  font-size: 28rpx;
+  line-height: 88rpx;
+  height: 88rpx;
+  color: #888888;
+  font-weight: 100;
+  background: #f6f6f6;
+  padding-left: 22rpx;
+  border-radius:10rpx;
+  margin-bottom: 40rpx; 
+}
+input[name="phone"]{
+  padding-right: 184rpx;
+}
+.form_button{
+  margin-top: 70rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+}
+.weui-agree{
+  padding: 40rpx 0;
+  font-size: 28rpx;
+}
+.weui-agree__link{
+  color: #317ef4
+}
+.weui-agree__checkbox-icon .iconfont{
+  position: absolute;
+  top: -26rpx;
+  font-size: 24rpx;
+  color: #317df3;
+  line-height: 0
+}
+.agreement{
+  font-size: 24rpx;
+  color: #888888
+}
+.agreement navigator{
+  text-decoration: underline
+}

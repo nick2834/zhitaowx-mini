@@ -1,0 +1,9 @@
+{
+  "enablePullDownRefresh": false,
+  "navigationBarBackgroundColor": "#317EF3",
+  "navigationBarTitleText": "常见问题",
+  "backgroundTextStyle": "light",
+  "usingComponents": {
+    "dialog": "../../../components/identity/index"
+  }
+}

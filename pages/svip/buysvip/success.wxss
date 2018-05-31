@@ -1,0 +1,24 @@
+page{
+    background-color: #FFFFFF;
+}
+.status_icon{
+  width: 136rpx;
+  height: 136rpx;
+}
+.weui-msg__icon-area{
+  margin-bottom: 20rpx;
+}
+.weui-msg__title{
+  color: #317df4;
+  margin-bottom: 50rpx;
+}
+.weui-btn-area{
+  margin-top: 180rpx;
+}
+.weui-btn-area .weui-btn{
+  background: #317df4;
+  color: #fff;
+  border-radius: 10rpx;
+  line-height: 88rpx;
+  font-size: 32rpx;
+}

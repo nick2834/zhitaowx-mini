@@ -1,0 +1,31 @@
+/* pages/shops/index.wxss */
+image{
+  margin-top: -12rpx;
+}
+.footer{
+  position: fixed;
+  bottom: 0;
+  height: 64px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  background: #ffffff;
+}
+.footer .button{
+  background: #ff2f45;
+  color: #fff;
+  position:relative;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  padding-left:14px;
+  padding-right:14px;
+  box-sizing:border-box;
+  font-size:18px;
+  text-align:center;
+  text-decoration:none;
+  line-height:2.55555556;
+  border-radius:5px;
+  -webkit-tap-highlight-color:transparent;
+  overflow:hidden;
+}

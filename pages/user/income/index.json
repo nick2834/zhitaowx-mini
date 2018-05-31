@@ -1,0 +1,8 @@
+{
+  "enablePullDownRefresh": false,
+  "navigationBarTitleText": "收入明细",
+  "usingComponents": {
+    "placeholder": "../../../components/placeholder/index",
+    "dialog": "../../../components/identity/index"
+  }
+}

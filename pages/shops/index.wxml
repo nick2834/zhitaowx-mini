@@ -1,0 +1,12 @@
+<!--pages/shops/index.wxml-->
+<view class='pages'>
+  <view style="position: relative; display: flex; flex-direction: column;margin-bottom:64px">
+    <block wx:for="{{pageImgs}}" wx:key="{{index}}">
+      <image mode='widthFix' class='falsePic' src='{{item}}'></image>
+    </block>
+  </view>
+
+  <view class='footer'>
+    <navigator hover-class='none' url='/pages/buys/index?id={{goodsID}}' class='button'>立即购买</navigator>
+  </view>
+</view>

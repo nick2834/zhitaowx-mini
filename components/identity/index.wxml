@@ -1,0 +1,3 @@
+<view class='wx_dialog_container' hidden="{{islogin}}">
+    <button open-type='getUserInfo' bindgetuserinfo='bindgetuserinfo' class='wx-dialog-btn wx_dialog_button__block' style='color:#317df4' catchtap='_confirmEvent'></button>
+</view>

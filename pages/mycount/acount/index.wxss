@@ -1,0 +1,54 @@
+page{
+  background: #f3f3f3
+}
+.page__bd{
+  margin-top: 25rpx;
+}
+.weui-cell{
+  line-height: 80rpx;
+}
+.weui-cells__title{
+  font-size: 24rpx;
+}
+.weui-label{
+  width: 90px;
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
+.wechat_icon{
+  width: 59rpx;
+  height: 59rpx;
+}
+.weui-cell__bd{
+  font-size: 28rpx;
+}
+button[type="primary"]{
+  background: #317df4
+}
+.button-hover[type="primary"] {
+  color:rgba(255, 255, 255, 0.6);
+  background-color:#317df4;
+}
+.weui-label{
+  color: #6e6e6e;
+  position: relative
+}
+.weui-label-icon{
+  display: flex;
+  align-items: center
+}
+.status{
+  position: relative;
+  display: flex;
+  align-items: center
+}
+.status image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.status_icon{
+  position:absolute;
+top:-22rpx;
+right:0rpx;
+
+}

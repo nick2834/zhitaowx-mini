@@ -1,0 +1,8 @@
+{
+  "enablePullDownRefresh": false,
+  "navigationBarTitleText": "提现记录",
+  "usingComponents": {
+    "placeholder": "../../../components/placeholder/index",
+    "dialog": "../../../components/identity/index"
+  }
+}

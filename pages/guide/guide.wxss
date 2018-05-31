@@ -1,0 +1,103 @@
+.page{
+  width: 100%;
+  margin: 0 auto;
+}
+#guide_video{
+  width: 100%;
+}
+.guide_box{
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  display: block
+}
+.controle_btn{
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 100rpx
+}
+.btn_left{
+  line-height: 100rpx;
+  color: #757575;
+}
+.btn_left .icon-play{
+  margin-right: 20rpx;
+}
+.btn_right{
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
+  color: #474747;
+  background: transparent;
+  padding: 0;
+  line-height: 80rpx
+}
+.btn_right::after{
+  border: none
+}
+.btn_right .share_icon{
+  font-size: 50rpx;
+}
+.btn_right view{
+  font-size: 24rpx;
+  line-height:0;
+}
+.guide_desc{
+  padding-bottom: 30rpx;
+  border-bottom: 1px solid #E9E8E8
+}
+.desc_title,.more_title{
+  font-weight: bold;
+  font-size: 28rpx;
+  line-height: 80rpx;
+  color: #343434
+}
+.desc{
+  font-size: 24rpx;
+  color: #575757;
+  line-height: 48rpx;
+}
+.more{
+  margin: 24rpx 0;
+}
+.more_item{
+  overflow: hidden
+}
+.items{
+  float: left;
+  width: 40%;
+  margin-right:30rpx;
+}
+.items:nth-child(2n){
+  margin-right: 0
+}
+.items image{
+  width: 260rpx;
+  height: 145rpx;
+}
+.items text{
+  line-height: 65rpx;
+  font-size: 30rpx;
+  color: #303030
+}
+.share_btn{
+  position: fixed;
+  top: 50%;
+  right: 30rpx;
+  width: 80rpx;
+  height: 80rpx;
+  background: #317df4;
+  border-radius: 50%;
+  border: 1px solid #E9E8E8;
+}
+.share_btn .iconfont{
+  width:100%;
+  text-align:center;
+  color:#ffffff;
+  font-size:40rpx;
+  font-weight:600;
+  line-height: 80rpx;
+}

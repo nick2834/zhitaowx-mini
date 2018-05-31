@@ -1,0 +1,175 @@
+<view class="page">
+  <scroll-view scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="loadImg" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+    <view class='header'>
+      <image class='image_thumbs' lazy-load src='{{infoDetails.item_pic}}' data-src="{{infoDetails.item_pic}}" bindtap="previewImage" mode='widthFix'></image>
+    </view>
+    <view class='content' wx:if="{{shopDetails && infoDetails}}">
+      <view class='infomations pd30'>
+        <view class='price' wx:if="{{infoDetails}}">
+          <text class='price_icon'>券后价</text>             
+          <text class='price_nums' wx:if="{{state === 0}}">正在努力计算中...</text>
+          <text class='price_nums' wx:elif="{{state === 1}}"><text>￥</text>{{shopDetails.after_price}}</text>
+          <text class='price_nums' wx:else>抱歉，计算失败，请稍后重试</text>
+        </view>
+        <view class='old_price' wx:if="{{infoDetails}}">
+          <view class='old'>现价 ￥ <text>{{infoDetails.item_price}}</text></view>
+          <view class='old'>月销{{infoDetails.item_volume}}件</view>
+        </view>
+        <view class='price_desc' wx:if="{{identityCode<2}}">
+          该商品存在高佣金,加油升级才能查看~,请尽快升级SVIP
+        </view>
+        <view class='good_title'>
+          <block wx:if="{{infoDetails.item_type === 0}}">
+            <image lazy-load class='tm_icon' src='../../img/taobao.png'></image>
+          </block>
+          <block wx:else>
+            <image lazy-load class='tm_icon' src='../../img/tm.png'></image>
+          </block> 
+          <text>{{infoDetails.item_title}}</text>
+        </view>
+        <button open-type='share' class='share_btn'>
+          <icon class='iconfont icon-fenxiang share_icon'></icon>
+          <view>分享</view>
+        </button>
+      </view>
+      <view class='preferential pd30' wx:if="{{state === 1}}">
+          <!-- 有优惠券 -->
+          <block wx:if="{{coupon}}">
+            <view class='pre pre_up'>
+              <icon class='iconfont icon-weibiaoti2fuzhi02'><text class='pre_title'>优惠券 <text class='gold_col'>{{shopDetails.coupon_amount}}元</text>（{{shopDetails.coupon_info}}）</text> </icon>
+            </view>
+            <view class='pre pre_down'>
+              <icon class='iconfont icon-jinbi'>
+                <text wx:if="{{identityCode <= 0 }}"class='pre_title'>佣金预计￥0.00 （<text class='gold_col'>升级VIP预计佣金￥{{shopDetails.upgrade_subsidy}}</text>）</text> 
+                <text wx:if="{{identityCode === 1 }}"class='pre_title'>佣金预计￥{{shopDetails.subsidy}} （<text class='gold_col'>升级SVIP预计多赚￥{{shopDetails.upgrade_subsidy}}</text>）</text> 
+                <text wx:if="{{identityCode > 1 }}"class='pre_title'>佣金预计￥{{shopDetails.commissions}}</text> 
+              </icon>
+            </view>
+          </block>
+          <!-- 无优惠券 -->
+          <block wx:else>
+            <view class='pre pre_up'>
+              <icon class='iconfont icon-weibiaoti2fuzhi02'><text class='pre_title'>该商品暂无优惠券</text> </icon>
+            </view>
+            <view class='pre pre_down'>
+              <icon class='iconfont icon-jinbi'>
+                <text wx:if="{{identityCode <= 0 }}"class='pre_title'>佣金预计￥0.00 （<text class='gold_col'>升级VIP预计佣金￥{{shopDetails.upgrade_subsidy}}</text>）</text> 
+                <text wx:if="{{identityCode === 1 }}"class='pre_title'>佣金预计￥{{shopDetails.subsidy}}（<text class='gold_col'>升级SVIP预计多赚￥{{shopDetails.upgrade_subsidy}}</text>）</text> 
+                <text wx:if="{{identityCode > 1 }}"class='pre_title'>佣金预计￥{{shopDetails.commissions}}</text>
+              </icon>
+            </view>
+          </block>
+      </view>
+    </view>
+    <view class='goods_container'>
+      <block wx:if="{{goodsDetails.length > 0}}">
+        <image wx:for="{{goodsDetails}}" wx:key="{{index}}" lazy-load class='goods_img'  src='{{item}}' mode='widthFix' style='width:100%'></image>
+      </block>
+      <block wx:else>
+        <placeholder style="width:100%"><view>本商品暂无详情</view></placeholder>
+      </block>
+    </view>
+  </scroll-view>
+  <!-- <view class='footer {{isIpx?"fix-iphonex-footer":""}}'> -->
+  <view class='footer'>
+    <navigator open-type='switchTab' url='/pages/index/index' hover-class='none'class='back_btn'>
+      <image class='go_home' src='../../img/btn_home@3x.png'></image>
+      <view class='btn_title'>首页</view>
+    </navigator>
+    <view class='func_btn'>
+        <block wx:if="{{state == 0}}">
+            <view class="func_right func_svip">
+               <text style="line-height:100rpx;font-size:0.85em">客官别急，正在为你搜券中</text>
+            </view>    
+        </block>
+        <block wx:elif="{{state == 1}}">
+            <!-- 有优惠券 -->
+            <block wx:if="{{coupon}}">
+              <!-- 普通用户 -->
+              <!-- <block wx:if="{{identityCode === 0 }}">
+                <navigator hover-class='none' url='/pages/user/register/index?type=zhuce&route=detials' class="func_right func_svip">
+                  <text class='t6'>可享受优惠券￥{{shopDetails.coupon_amount}}，下单再返￥{{shopDetails.subsidy}}</text>
+                  <view class='t3'>免费升级</view>
+                </navigator>
+              </block> -->
+              <block wx:if="{{identityCode <= 0 }}">
+                <navigator hover-class='none' url='/pages/user/register/index?type=zhuce&route=detials' class="func_left">
+                  <text class='t6'>升级VIP 多赚{{shopDetails.upgrade_subsidy}}元</text>
+                  <view class='t3'>免费升级</view>
+                </navigator>
+                <view hover-class='none' class="func_right" data-id='{{shopDetails.taotoken}}' bindtap='clickPaste'>
+                  <text class='t6'>优惠券￥{{shopDetails.coupon_amount}}</text>
+                  <view class='t3'>立即领券</view>
+                </view>
+              </block>
+              <!-- VIP用户 -->
+              <block wx:elif="{{identityCode === 1 }}">
+                <navigator hover-class='none' url='/pages/svip/buysvip/buysvip?route=detials' class="func_left">
+                  <text class='t6'>升级SVIP 多赚￥{{shopDetails.upgrade_subsidy}}</text>
+                  <view class='t3'>立即升级</view>
+                </navigator>
+                <view hover-class='none' class="func_right"data-id='{{shopDetails.taotoken}}' bindtap='clickPaste'>
+                  <text class='t6'>优惠券￥{{shopDetails.coupon_amount}}</text>
+                  <view class='t3'>下单再返￥{{shopDetails.subsidy}}</view>
+                </view>
+              </block>
+              <!-- SVIP用户 -->
+              <block wx:elif="{{identityCode > 1 }}">
+                <view class="func_right func_svip"data-id='{{shopDetails.taotoken}}' bindtap='clickPaste'>
+                  <text class='t6'>优惠券￥{{shopDetails.coupon_amount}}</text>
+                  <view class='t3'>下单再返￥{{shopDetails.commissions}}</view>
+                </view>
+              </block>
+            </block>
+            <!-- 无优惠券 -->
+            <block wx:else>
+              <!-- 普通用户 -->
+              <!-- <block wx:if="{{identityCode === 0}}">
+                <navigator hover-class='none' url='/pages/user/register/index?type=zhuce&route=detials' class="func_right func_svip func_normal">
+                  <text class='t6'>下单再返￥{{shopDetails.subsidy}}</text>
+                  <view class='t3'>免费升级</view>
+                </navigator>
+              </block> -->
+              <block wx:if="{{identityCode <= 0}}">
+                <navigator hover-class='none' url='/pages/user/register/index?type=zhuce&route=detials' class="func_right func_svip">
+                  <text class='t6'>升级VIP 多赚{{shopDetails.upgrade_subsidy}}元</text>
+                  <view class='t3'>免费升级</view>
+                </navigator>
+              </block>
+              
+              <!-- VIP用户 -->
+              <block wx:elif="{{identityCode === 1}}">
+                <navigator hover-class='none' url='/pages/svip/buysvip/buysvip?route=detials' class="func_left">
+                  <!-- <text class='t4 vtop'>佣金10元</text> -->
+                  <text class='t6 '>升级SVIP 多赚{{shopDetails.upgrade_subsidy}}元</text>
+                  <view class='t3'>立即升级</view>
+                </navigator>
+                <view hover-class='none' class="func_right" data-id='{{shopDetails.taotoken}}' bindtap='clickPaste'>
+                  <view class='t3 nocard'>下单返￥{{shopDetails.subsidy}}</view>
+                </view>
+              </block>
+              <!-- SVIP用户 -->
+              <block wx:elif="{{identityCode >1}}">
+                <view hover-class='none' class="func_right func_svip" data-id='{{shopDetails.taotoken}}' bindtap='clickPaste'>
+                  <!-- <text class='t6'>佣金</text> -->
+                  <view class='t3' style='position:relative;line-height:108rpx'>下单返￥{{shopDetails.commissions}}</view>
+                </view>
+              </block>
+            </block>
+        </block>    
+        <block wx:else>
+            <view class="func_right func_svip">
+               <text style="line-height:100rpx;font-size:0.85em">抱歉，搜券失败，请稍后重试</text>
+            </view>
+        </block>    
+    </view>
+  </view>
+</view>
+
+ <dialog id='dialog' wx:if="{{!islogin}}"
+  title='授权登录提示' 
+  content='访问此页面需要你的授权登录' 
+  cancelText='不用了' 
+  confirm='去授权'
+>
+</dialog>

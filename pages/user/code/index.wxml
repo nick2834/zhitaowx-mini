@@ -1,0 +1,25 @@
+<view class='page' style='height:{{windowHeight}}px;'>
+  <view class='code_swiper' style='height:{{windowHeight-95}}px;'>
+    <view class='image_view' style='background:url({{picUrl}}) 100% center'></view>
+    <image class='qrcode' bindload='loadImage' data-src="{{picUrl}}" data-index='1' bindtap="previewImage" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" src='{{picUrl}}'mode='scaleToFill' style='width:{{images.width}}px;height:{{images.height}}px'></image>
+    <!-- <button hover-class='none' class='share_btn' bindtap='saveImage'>
+      <icon class='iconfont icon-xiazai'></icon>
+    </button> -->
+  </view>
+  <scroll-view scroll-x="true" class="weui-navbar_code" style='height:190rpx'>
+    <text class='text_info'>点击上图长按可转发</text>
+    <block wx:for-items="{{qrcodeList}}" wx:key="{{item.code}}">
+      <image id="{{item.code}}" class="{{activeIndex == index ?'item_on':''}} default-item" bindtap="tabClick" style="width:{{tabW}}px;height:{{tabW}}px" src='{{item.icon}}'mode="aspectFill">
+        <icon class='iconfont {{activeIndex == index?" icon-queren":""}}' style='line-height:{{tabW}}px'></icon>
+      </image>
+    </block>
+  </scroll-view>
+</view>
+
+<dialog id='dialog' wx:if="{{!islogin}}"
+  title='授权登录提示' 
+  content='访问此页面需要你的授权登录' 
+  cancelText='不用了' 
+  confirm='去授权'
+>
+</dialog>

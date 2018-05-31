@@ -1,0 +1,58 @@
+page{
+  background: #f3f3f3
+}
+.header{
+  height: 200rpx;
+  background: #317df4;
+  color: #fff;
+  padding: 30rpx;
+}
+.title{
+  margin-top: 30rpx;
+  font-size: 28rpx;
+  line-height: 56rpx;
+}
+.money{
+  font-size: 45rpx;
+  font-weight: bold;
+  line-height: 90rpx;
+}
+.weui-cell_input{
+  color: #333;
+  font-size: 28rpx;
+  line-height: 88rpx;
+}
+.weui-cell__bd{
+  text-align: right;
+}
+.weui-cell__bd input{
+  line-height: 88rpx;
+  height: 88rpx;
+}
+.user_avatar{
+  width: 46rpx;
+  height: 46rpx;
+  vertical-align:middle;
+  margin-right: 20rpx;
+  border-radius: 50%;
+}
+.user_name{
+  color: #acacac;
+  font-size: 28rpx;
+  line-height: 88rpx;
+}
+.weui-cells__tips{
+  font-size: 24rpx;
+}
+.placeholder{
+  color: #acacac
+}
+.weui-cells_after-title{
+  border-bottom: none !important
+}
+button[type=primary]{
+  background: #317df4
+}
+.button-hover{
+  background: #317df4 !important
+}

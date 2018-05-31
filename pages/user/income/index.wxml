@@ -1,0 +1,224 @@
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-tab">
+            <view class="weui-navbar">
+                <block wx:for="{{tabs}}" wx:key="*this">
+                    <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                        <view class="weui-navbar__title">{{item}}</view>
+                    </view>
+                </block>
+                <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+            </view>
+            <scroll-view class="weui-tab__panel" style="height:{{scrollheight}} + 80px" scroll-top="{{scrolltop}}" bindscroll="scroll" bindscrolltolower="onReachBottom" bindscrolltoupper="refresh" scroll-y>
+                <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+                  <block wx:if="{{orderList.length > 0}}">
+                    <view class='weui-tab-list' wx:for="{{orderList}}" wx:key="{{item.orderid}}" data-id='{{item.orderid}}'>
+                      <view class='weui-tab-head'>
+                        <image lazy-load class='shop_image' src='{{item.goods_pic}}'></image>
+                        <view class='shop_msg'>
+                          <view class='shop_box'>
+                            <text class='title'>{{item.goods_title}}</text>
+                            <block wx:if="{{item.type === 1}}">
+                              <text class='shops'>所属店铺：{{item.goods_shoptitle}}</text>
+                            </block>                      
+                          </view>
+                          <view class='source'>来源：{{item.source}}</view>
+                        </view>
+                      </view>
+                      <view class='weui-tab-body'>
+                        <view class='pay'>
+                          <text class='tit'>付款金额</text>
+                          <text class='coins'>￥{{item.price}}</text>
+                        </view>
+                        <view class='pay'>
+                          <text class='tit'>成交预估收入</text>
+                          <text class='coins'>￥{{item.commision}}</text>
+                        </view>
+                        <view class='pay'>
+                          <text class='tit'>预计到账时间</text>
+                          <text class='coins'>{{item.yujitime}}</text>
+                        </view>
+                        <view class='pay'>
+                          <text class='tit'>佣金状态</text>
+                          <text wx:if="{{item.status == 1}}" class='coins'>未到账</text>
+                          <text wx:if="{{item.status == 2}}" class='coins'>已到账</text>
+                          <text wx:if="{{item.status == 3}}" class='coins'>已关闭</text>
+                          <text wx:if="{{item.status == 4}}" class='coins'>退款中</text>
+                          <text wx:if="{{item.status == 5}}" class='coins'>已退款</text>
+                        </view>
+                      </view>
+                      <view class='weui-tab-foot'>{{item.datetime}}创建</view>
+                    </view>
+                    <view class='zuihou' wx:if="{{IslastPage}}"> 
+                      <icon class='iconfont icon-smile'></icon>
+                      <view>我是有底线的</view>
+                    </view>
+                  </block>
+                  <block wx:else>
+                    <view class='weui-tab-list'>
+                      <placeholder><view>当前暂无收入明细</view></placeholder>
+                    </view>
+                  </block>
+                </view>
+                <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+                  <block wx:if="{{orderList.length > 0}}">
+                    <view class='weui-tab-list' wx:for="{{orderList}}" wx:key="{{item.orderid}}" data-id='{{item.orderid}}'>
+                      <view class='weui-tab-head'>
+                        <image lazy-load class='shop_image' src='{{item.goods_pic}}'></image>
+                        <view class='shop_msg'>
+                          <view class='shop_box'>
+                            <text class='title'>{{item.goods_title}}</text>
+                            <block wx:if="{{item.type === 1}}">
+                              <text class='shops'>所属店铺：{{item.goods_shoptitle}}</text>
+                            </block>
+                          </view>
+                          <view class='source'>来源：{{item.source}}</view>
+                        </view>
+                      </view>
+                      <view class='weui-tab-body'>
+                        <view class='pay'>
+                          <text class='tit'>付款金额</text>
+                          <text class='coins'>￥{{item.price}}</text>
+                        </view>
+                        <view class='pay'>
+                          <text class='tit'>成交预估收入</text>
+                          <text class='coins'>￥{{item.commision}}</text>
+                        </view>
+                        <view class='pay'>
+                          <text class='tit'>预计到账时间</text>
+                          <text class='coins'>{{item.yujitime}}</text>
+                        </view>
+                        <view class='pay'>
+                          <text class='tit'>佣金状态</text>
+                          <text wx:if="{{item.status == 1}}" class='coins'>未到账</text>
+                          <text wx:if="{{item.status == 2}}" class='coins'>已到账</text>
+                          <text wx:if="{{item.status == 3}}" class='coins'>已关闭</text>
+                          <text wx:if="{{item.status == 4}}" class='coins'>退款中</text>
+                          <text wx:if="{{item.status == 5}}" class='coins'>已退款</text>
+                        </view>
+                      </view>
+                      <view class='weui-tab-foot'>{{item.datetime}}创建</view>
+                    </view>
+                    <view class='zuihou' wx:if="{{IslastPage}}"> 
+                      <icon class='iconfont icon-smile'></icon>
+                      <view>我是有底线的</view>
+                    </view>
+                  </block>
+                  <block wx:else>
+                    <view class='weui-tab-list'>
+                      <placeholder><view>当前暂无收入明细</view></placeholder>
+                    </view>
+                  </block>
+                </view>
+                <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+                  <block wx:if="{{orderList.length > 0}}">
+                    <view class='weui-tab-list' wx:for="{{orderList}}" wx:key="{{item.orderid}}" data-id='{{item.orderid}}'>
+                      <view class='weui-tab-head'>
+                        <image lazy-load class='shop_image' src='{{item.goods_pic}}'></image>
+                        <view class='shop_msg'>
+                          <view class='shop_box'>
+                            <text class='title'>{{item.goods_title}}</text>
+                            <block wx:if="{{item.type === 1}}">
+                              <text class='shops'>所属店铺：{{item.goods_shoptitle}}</text>
+                            </block>
+                          </view>
+                          <view class='source'>来源：{{item.source}}</view>
+                        </view>
+                      </view>
+                      <view class='weui-tab-body'>
+                        <view class='pay'>
+                          <text class='tit'>付款金额</text>
+                          <text class='coins'>￥{{item.price}}</text>
+                        </view>
+                        <view class='pay'>
+                          <text class='tit'>成交预估收入</text>
+                          <text class='coins'>￥{{item.commision}}</text>
+                        </view>
+                        <view class='pay'>
+                          <text class='tit'>预计到账时间</text>
+                          <text class='coins'>{{item.yujitime}}</text>
+                        </view>
+                        <view class='pay'>
+                          <text class='tit'>佣金状态</text>
+                          <text wx:if="{{item.status == 1}}" class='coins'>未到账</text>
+                          <text wx:if="{{item.status == 2}}" class='coins'>已到账</text>
+                          <text wx:if="{{item.status == 3}}" class='coins'>已关闭</text>
+                          <text wx:if="{{item.status == 4}}" class='coins'>退款中</text>
+                          <text wx:if="{{item.status == 5}}" class='coins'>已退款</text>
+                        </view>
+                      </view>
+                      <view class='weui-tab-foot'>{{item.datetime}}创建</view>
+                    </view>
+                    <view class='zuihou' wx:if="{{IslastPage}}"> 
+                      <icon class='iconfont icon-smile'></icon>
+                      <view>我是有底线的</view>
+                    </view>
+                  </block>
+                  <block wx:else>
+                    <view class='weui-tab-list'>
+                      <placeholder><view>当前暂无收入明细</view></placeholder>
+                    </view>
+                  </block>
+                </view>
+                <view class="weui-tab__content" hidden="{{activeIndex != 3}}">
+                  <block wx:if="{{orderList.length > 0}}">
+                    <view class='weui-tab-list' wx:for="{{orderList}}" wx:key="{{item.orderid}}" data-id='{{item.orderid}}'>
+                      <view class='weui-tab-head'>
+                        <image lazy-load class='shop_image' src='{{item.goods_pic}}'></image>
+                        <view class='shop_msg'>
+                          <view class='shop_box'>
+                            <text class='title'>{{item.goods_title}}</text>
+                            <block wx:if="{{item.type === 1}}">
+                              <text class='shops'>所属店铺：{{item.goods_shoptitle}}</text>
+                            </block>
+                          </view>
+                          <view class='source'>来源：{{item.source}}</view>
+                        </view>
+                      </view>
+                      <view class='weui-tab-body'>
+                        <view class='pay'>
+                          <text class='tit'>付款金额</text>
+                          <text class='coins'>￥{{item.price}}</text>
+                        </view>
+                        <view class='pay'>
+                          <text class='tit'>成交预估收入</text>
+                          <text class='coins'>￥{{item.commision}}</text>
+                        </view>
+                        <view class='pay'>
+                          <text class='tit'>预计到账时间</text>
+                          <text class='coins'>{{item.yujitime}}</text>
+                        </view>
+                        <view class='pay'>
+                          <text class='tit'>佣金状态</text>
+                          <text wx:if="{{item.status == 1}}" class='coins'>未到账</text>
+                          <text wx:if="{{item.status == 2}}" class='coins'>已到账</text>
+                          <text wx:if="{{item.status == 3}}" class='coins'>已关闭</text>
+                          <text wx:if="{{item.status == 4}}" class='coins'>退款中</text>
+                          <text wx:if="{{item.status == 5}}" class='coins'>已退款</text>
+                        </view>
+                      </view>
+                      <view class='weui-tab-foot'>{{item.datetime}}创建</view>
+                    </view>
+                    <view class='zuihou' wx:if="{{IslastPage}}"> 
+                      <icon class='iconfont icon-smile'></icon>
+                      <view>我是有底线的</view>
+                    </view>
+                  </block>
+                  <block wx:else>
+                    <view class='weui-tab-list'>
+                      <placeholder><view>当前暂无收入明细</view></placeholder>
+                    </view>
+                  </block>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+</view>
+
+<dialog id='dialog' wx:if="{{!islogin}}"
+  title='授权登录提示' 
+  content='访问此页面需要你的授权登录' 
+  cancelText='不用了' 
+  confirm='去授权'
+>
+</dialog>

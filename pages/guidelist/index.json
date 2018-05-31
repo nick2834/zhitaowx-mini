@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "新手指引",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "dialog": "../../components/identity/index"
+  }
+}

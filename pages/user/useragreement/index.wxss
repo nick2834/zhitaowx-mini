@@ -1,0 +1,41 @@
+page{
+  color: #333;
+  font-family: "serif"、"sans-serif"、"cursive"、"fantasy"、"monospace"
+}
+.title{
+  line-height: 110rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  display: inline-block
+}
+.text{
+  display: inline-block;
+  text-indent: 48rpx;
+  font-size: 28rpx;
+  line-height: 42rpx;
+}
+.text_h{
+  text-indent: 0
+}
+.content{
+  padding: 0 38rpx;
+}
+.text_title{
+  font-size: 28rpx;
+  padding: 60rpx 0 30rpx;
+}
+.btn_gtoup{
+  margin: 27rpx 0;
+}
+.btn_gtoup .weui-button{
+  width: 100%;
+  background: #317df4;
+  color: #fff;
+  line-height: 88rpx;
+  height: 88rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  font-size: 32rpx;
+}

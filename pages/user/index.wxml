@@ -1,0 +1,169 @@
+<dialog id='dialog' wx:if="{{!islogin}}"
+  title='授权登录提示' 
+  content='访问此页面需要你的授权登录' 
+  cancelText='不用了' 
+  confirm='去授权'
+>
+</dialog>
+<block wx:if="{{!isLoading}}">
+  <view class='page_box'>
+     <loading hidden="{{isLoading}}">正在拼命加载</loading> 
+  </view>
+</block>
+<block wx:else>
+  <view class='pages falsePages' wx:if="{{!goods_button}}">
+    <view class='falsePages_top'>
+      <open-data class='falsePages_tx' type="userAvatarUrl"></open-data>
+      <view class='falsePages_name'>
+        <open-data type="userNickName"></open-data>
+      </view>
+    </view>
+    <view class='nouser'>
+      <image class='falsePages_img' mode='widthFix'  src='../../img/nouser.png'></image>
+      <view class='nofont'>您暂时还没有订单哦！</view>
+    </view>
+  </view>
+  <view class='pages' wx:else>
+    <!-- 未登录 -->
+    <view class='top'>
+      <view class='top_lan'>
+        <view class='lan100'>
+          <open-data class='tx' type="userAvatarUrl"></open-data>
+          <view class='name {{identityCode > 2?"tubuClass":""}}'>
+            <view class='user_box'>
+              <open-data class='userNickName' type="userNickName"></open-data>
+              <block wx:if="{{identityCode == 1}}">
+                <image src='../../img/vip_icon.png'></image>
+              </block>
+              <block wx:elif="{{identityCode == 2}}"> 
+                <image src='../../img/svip_icon.png'></image>
+              </block>
+              <block wx:elif="{{identityCode > 2}}">
+                <image src='../../img/tubu_icon.png'></image>
+              </block> 
+            </view>
+            <!-- 未授权 -->
+            <button wx:if = "{{identityCode < 0}}" open-type='getUserInfo' bindgetuserinfo='bindgetuserinfo' hover-class='none' class='lijisvip'>
+              授权登录>
+            </button> 
+            <!-- 普通登录 -->
+            <navigator wx:if = "{{identityCode == 0}}" url='/pages/user/register/index?type=zhuce' hover-class='none' class='lijisvip'>
+              免费升级>
+            </navigator>
+            <!-- 已注册 -->
+            <navigator wx:elif = "{{identityCode === 1}}" url='/pages/svip/buysvip/buysvip' style='width:140rpx'  hover-class='none' class='lijisvip'>
+              成为SVIP>
+            </navigator>
+            <!-- 已充值 -->
+            <view wx:elif = "{{identityCode === 2}}" open-type='switchTab' url='/pages/svip/svip' hover-class='none' class='lijisvip'>
+              {{userInfo.svip_end_time}}到期
+            </view>
+          </view>
+          <view class='yongjin'wx:if = "{{identityCode < 0}}">
+            <view class='shuzi'>0.00</view>
+            <view class='wenzi'>可用佣金（元）<image src='img/baijian.png'></image></view>
+          </view>
+          <view class='yongjin' bindtap='gotoCount' wx:else>
+            <view class='shuzi'>{{userInfo.money}}</view>
+            <view class='wenzi'>可用佣金（元）<image src='img/baijian.png'></image></view>
+          </view>
+        </view>
+      </view>
+      <view class='top_xia' wx:if ="{{identityCode < 0}}">
+        <button class='yugu' hover-class='none'open-type='getUserInfo' bindgetuserinfo='bindgetuserinfo'>
+          <text class='yg1'>0\n</text>
+          <text class='yg2'>今日结算预估佣金(元）</text>
+        </button>
+        <view class='shu'></view>
+        <button class='yugu' hover-class='none'open-type='getUserInfo' bindgetuserinfo='bindgetuserinfo'>
+          <text class='yg1'>0\n</text>
+          <text class='yg2'>今日成交预估佣金(元）</text>
+        </button>
+      </view>
+      <view class='top_xia' wx:else>
+        <navigator class='yugu' hover-class='none' url='/pages/user/income/index?date=15852255'>
+          <text class='yg1'>{{userInfo.today_grant_money}}\n</text>
+          <text class='yg2'>今日结算预估佣金(元）</text>
+        </navigator>
+        <view class='shu'></view>
+        <navigator class='yugu' hover-class='none' url='/pages/user/income/index?date=15852255'>
+          <text class='yg1'>{{userInfo.today_deal_money}}\n</text>
+          <text class='yg2'>今日成交预估佣金(元）</text>
+        </navigator>
+      </view>
+    </view>
+    <!--分割线-->
+    <view class='fenge'></view>
+    <!--分割线-->
+    <view class='quanyi' wx:if="{{identityCode === 1}}" >
+      <view class='qy1'>
+        <view class='qy1l'>SVIP 权益</view>
+        <navigator class='qy1r' hover-class='none' url='/pages/svip/buysvip/buysvip'>
+          开通SVIP >
+          <!-- <image src='../../img/arrow_right.png'></image> -->
+        </navigator>
+      </view>
+      <view class='qy2'>成为SVIP，预计一年将为您<text>多赚8568元</text></view>
+    </view>
+    <view class='quanyi' wx:if="{{identityCode >= 2}}" >
+      <button open-type='share'>
+        <image class='tubu_img' src='../../img/banner.png'></image>
+      </button>
+    </view>
+    <view class='do_list' wx:if="{{identityCode > 0}}"> 
+      <navigator hover-class='weui-cell_active' class='caidan' url='/pages/user/custome/index'>
+        <image class='ico' src='img/btn_kh.png'></image>
+        我的客户
+        <icon class='iconfont icon-previewright huijian'></icon>
+      </navigator>
+
+      <navigator hover-class='weui-cell_active'  class='caidan' url='/pages/user/code/index'>
+        <image class='ico' src='img/btn_ewm.png'></image>
+        我的二维码
+        <icon class='iconfont icon-previewright huijian'></icon>
+      </navigator>
+
+      <navigator hover-class='weui-cell_active'  class='caidan' url='/pages/user/income/index'>
+        <image class='ico' src='img/btn_srmx.png'></image>
+        收入明细
+        <icon class='iconfont icon-previewright huijian'></icon>
+      </navigator>
+
+      <button hover-class='weui-cell_active' class='caidan'  bindtap='showToast'>
+        <image class='ico' src='img/btn_kf.png'></image>
+        联系客服
+        <icon class='iconfont icon-previewright huijian'></icon>
+      </button>
+      <navigator hover-class='weui-cell_active'  class='caidan' url='/pages/user/question/index'>
+        <image class='ico' src='img/btn_cjwt.png'></image>
+        常见问题
+        <icon class='iconfont icon-previewright huijian'></icon>
+      </navigator>
+    </view>
+    <view class='do_list' wx:else>
+      <button hover-class='weui-cell_active' class='caidan' bindtap='showToast'>
+        <image class='ico' src='img/btn_kf.png'></image>
+        联系客服
+        <icon class='iconfont icon-previewright huijian'></icon>
+      </button>
+
+      <navigator hover-class='weui-cell_active'  class='caidan' url='/pages/user/question/index'>
+        <image class='ico' src='img/btn_cjwt.png'></image>
+        常见问题
+        <icon class='iconfont icon-previewright huijian'></icon>
+      </navigator>
+    </view> 
+  </view>
+</block>
+<view class="weui_dialog_confirm" wx:if='{{showToast}}'>
+    <view class="weui_mask" bindtap='closeToast'></view>
+    <view class="weui_dialog">
+        <view class="weui_dialog_hd"><strong class="weui_dialog_title">温馨提示</strong></view>
+        <view class="weui_dialog_bd first_title">关注智淘公众号，及时获取省钱赚钱攻略</view>
+        <view class="weui_dialog_bd second_title" style='padding-bottom:0'>进入客服消息后，发送“1”获取</view>
+        <view class="weui_dialog_bd second_title">【智淘助手】公众号关注链接</view>
+        <view class="weui_dialog_ft">
+            <button open-type='contact' session-from='{"kefu":["kefu_id1", "kefu_id2", "kefu_id3"],"nickName":"{{userInfo.nickname}}" ,"avatarUrl":"{{userInfo.avatar}}"}' bindtap='closeToast' >知道了</button>
+        </view>
+    </view>
+</view>

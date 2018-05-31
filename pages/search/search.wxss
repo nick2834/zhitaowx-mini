@@ -1,0 +1,83 @@
+.page{
+  width: 100%;
+  margin: 0 auto;
+  font-family: '微软雅黑';
+}
+.search-box{
+  padding: 20rpx 30rpx 0;
+  background: #f2f2f2;
+  height: 84rpx
+}
+.search{
+  height: 64rpx;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 50rpx;
+}
+.search_input{
+  height: 64rpx;
+  padding-left: 80rpx;
+  padding-right: 145rpx;
+  position: relative;
+  font-size: 30rpx
+}
+.search_icon{
+  color: #b2b2b2;
+  margin: 0 30rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 64rpx;
+}
+.search_btn{
+  position: absolute;
+  right: 0;
+  line-height: 64rpx;
+  color: #317ef2;
+  top: 0;
+  font-size: 28rpx;
+  text-align: center;
+  width: 145rpx;
+  border-left: 1px solid #e5e5e5;
+  font-weight: bold
+}
+.search_title{
+  margin-top: 36rpx;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 30rpx 20rpx;
+  border-bottom: 1px solid #f0f0f0
+}
+.search_title view{
+  flex: .5;
+  line-height: 30rpx;
+  color: #282828;
+  font-weight: 600;
+  font-size: 28rpx;
+}
+.search_title view:last-child{
+  text-align: right;
+  font-size: 24rpx;
+  color: #575757;
+}
+.search_list{
+  overflow: hidden;
+  padding: 20rpx 30rpx 0
+}
+.list_item{
+  background: #f7f7f7;
+  padding: 0 20rpx;
+  height: 55rpx;
+  border-radius: 25rpx;
+  font-size: 24rpx;
+  color: #575757;
+  line-height: 55rpx;
+  float: left;
+  margin: 0 20rpx 20rpx 0;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+  -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+  -webkit-line-clamp: 1; /** 显示的行数 **/
+  overflow: hidden;  /** 隐藏超出的内容 **/
+}

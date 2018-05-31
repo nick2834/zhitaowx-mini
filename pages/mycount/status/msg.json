@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh": false,
+  "navigationBarTitleText": "提现状态",
+  "usingComponents": {
+    "dialog": "../../../components/identity/index"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "SVIP 特权详情",
+  "backgroundColor": "#eeeeee",
+  "enablePullDownRefresh": false,
+  "backgroundTextStyle": "light",
+  "usingComponents": {
+    "dialog": "../../../components/identity/index"
+  }
+}

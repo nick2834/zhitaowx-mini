@@ -1,0 +1,41 @@
+page{
+  background: #f3f3f3
+}
+.weui-flex__item{
+  font-size: 28rpx;
+  /* font-weight: bold; */
+  color: #333
+}
+.weui-flex{-webkit-box-align:center;-webkit-align-items:center;align-items:center}
+.weui-cells{margin-top:0;opacity:0;-webkit-transform:translateY(-50%);transform:translateY(-50%);-webkit-transition:.3s;transition:.3s}
+ .weui-cells:after,.weui-cells:before{display:none} 
+.weui-cells_show{opacity:1;-webkit-transform:translateY(0);transform:translateY(0)}
+.weui-cell:before{right:15px}
+.kind-list__item{background-color:#fff;border-radius:2px;overflow:hidden}.kind-list__item:first-child{margin-top:0}
+.kind-list__img{width:30px;height:30px}
+.kind-list__item-hd{padding:20rpx 30rpx;-webkit-transition:opacity .3s;transition:opacity .3s;box-sizing: border-box;
+  border-bottom:1px solid #f3f3f3
+}
+.kind-list__item-hd_show{opacity:1}
+.kind-list__item-bd{height:0;overflow:hidden;}
+.kind-list__item-bd_show{height:auto;padding: 20rpx 60rpx;}
+.content{
+  font-size: 24rpx;
+  color: #333;
+  line-height: 50rpx;
+}
+.roles_title{
+  line-height: 80rpx;
+  background: #f3f3f3;
+  font-size: 28rpx;
+  margin-left: 30rpx;
+  color: #969696;
+}
+.angel_arrow{
+  width: 26rpx;
+  height: 16rpx;
+  transition: 100ms all;
+}
+.angel_arrow_active{
+  transform: rotate(180deg)
+}

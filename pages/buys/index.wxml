@@ -1,0 +1,49 @@
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+  <view class="page__bd">
+    <form class='reg_form' bindsubmit="formSubmit">
+      <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">收货人：</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" name="takename" value='{{takename}}'/>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">联系电话：</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" name="taketel" value='{{taketel}}'/>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">收货地址：</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" name="takeaddress" value='{{takeaddress}}'/>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">配送方式：</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" disabled placeholder="免运费" style='text-align:right;'/>
+              </view>
+          </view>
+      </view>
+      <view class='shops_info'>
+        <block wx:if="{{switchID == 1}}"><image mode='widthFix' class='falsePic' src='../../img/detail_01.png'></image></block>
+        <block wx:if="{{switchID == 2}}"><image mode='widthFix' class='falsePic' src='../../img/detail_02.png'></image></block>
+        <block wx:if="{{switchID == 3}}"><image mode='widthFix' class='falsePic' src='../../img/detail_03.png'></image></block>
+        <block wx:if="{{switchID == 4}}"><image mode='widthFix' class='falsePic' src='../../img/detail_04.png'></image></block>
+      </view>
+      <view class="weui-btn-area">
+          <button class="weui-btn" type="primary" formType="submit">去付款</button>
+      </view>
+    </form>
+  </view>
+</view>

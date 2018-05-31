@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh": false,
+  "navigationBarTitleText": "智淘助手注册协议",
+  "usingComponents": {
+    "dialog": "../../../components/identity/index"
+  }
+}

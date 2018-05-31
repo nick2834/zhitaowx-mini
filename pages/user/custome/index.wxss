@@ -1,0 +1,96 @@
+page,
+.page,
+.page__bd{
+    height: 100%;
+}
+.page__bd{
+    padding-bottom: 0;
+}
+.weui-tab__content{
+  /* padding-left:30rpx;  */
+  position: relative
+}
+.weui-tab-list{
+  border-bottom: 1rpx solid #eaeaea;
+  padding: 30rpx 0 0 30rpx;
+  display: flex;
+}
+.weui-tab-list:last-child{
+  border: none
+}
+.user_avator{
+  width: 124rpx;
+  height: 124rpx;
+  border-radius: 50%
+}
+.user_content{
+  padding-left: 20rpx;
+  font-size: 32rpx;
+  width: 580rpx;
+  position: relative
+}
+.user_content .username{
+  width:100px;
+  overflow:hidden;
+  display:inline-block;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  -o-text-overflow:ellipsis;
+}
+.user_time{
+  text-align: right;
+  color: #535353;
+  position: absolute;
+  right: 30rpx;
+  font-size: 24rpx;
+}
+.user_tags{
+  position: absolute;
+  left: 210rpx
+}
+.tags_vip{
+  color: #317ef3;
+  border: 1px solid #317ef3;
+  border-radius: 15rpx;
+  font-size: 24rpx;
+  padding: 0 10rpx;
+  margin-left: 10rpx;
+}
+.tags_svip{
+  color: #fff;
+  background: #317ef3;
+  border: 1px solid #317ef3;
+  border-radius: 15rpx;
+  font-size: 24rpx;
+  padding: 0 10rpx;
+  margin-left: 10rpx;
+}
+.tags_tubu{
+  color: #fff;
+  background: #317ef3;
+  border: 1px solid #317ef3;
+  border-radius: 15rpx;
+  font-size: 28rpx;
+  padding: 0 10rpx;
+  margin-left: 10rpx;
+}
+.level,.custom,.money{
+  width: 100%;
+  font-size: 28rpx;
+  color: #535353;
+  overflow:hidden;
+  display:block;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  -o-text-overflow:ellipsis;
+}
+.weui-navbar__item.weui-bar__item_on{
+  color: #317ef3;
+  border-bottom: 4rpx solid
+}
+.weui-navbar__slider{
+  background: #317ef3
+}
+.weui-navbar__item{
+  font-size: 30rpx;
+}

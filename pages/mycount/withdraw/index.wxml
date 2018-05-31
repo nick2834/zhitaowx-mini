@@ -1,0 +1,59 @@
+<view class='page'>
+  <view class='header'>
+    <view class='title'>可用佣金（元）</view>
+    <view class='money'>{{account.money}}</view>
+  </view>
+  <view class="page__bd">
+    <form bindsubmit='formSubmit'>
+      <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">收款账户</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <image class='user_avatar' src='{{userInfo.avatar}}'></image>
+                  <text class='user_name'>{{userInfo.nickname}}</text>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">收款方式</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" name="style" disabled value='微信零钱'/>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">姓名</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" name="username" placeholder="首次提现需填写真实姓名验证" bindinput='getnames' placeholder-class='placeholder' value='{{username}}' disabled='{{!disabled}}'/>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">提取金额</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" placeholder="请输入提现金额" name="money" placeholder-class='placeholder' bindinput='getmoney'/>
+              </view>
+          </view>
+      </view>
+      <view class="weui-cells__tips">由于微信零钱限制，提现金额不能低于1元，每天最多可用提现3次。</view>
+
+      <view class="weui-btn-area">
+          <button class="weui-btn" type="primary" form-type='submit'>确认提取</button>
+      </view>
+    </form>
+
+  </view>
+</view>
+
+ <dialog id='dialog' wx:if="{{!islogin}}"
+  title='授权登录提示' 
+  content='访问此页面需要你的授权登录' 
+  cancelText='不用了' 
+  confirm='去授权'
+>
+</dialog>

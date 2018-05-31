@@ -1,0 +1,88 @@
+<wxs module="filter" src="../../filter/filter.wxs"></wxs>
+<view class='page'>
+  <view class='search_box pd30'>
+    <view class='search'>
+      <input class='search_input' bindinput='bindInput' value='{{searchname}}' confirm-type='search' bindconfirm="bindconfirm">
+        <icon class='iconfont icon-sousuo search_icon'></icon>
+        <view class='search_btn' bindtap='searchBtn'>
+          搜优惠券
+        </view>
+      </input>
+    </view>
+  </view>
+  <view class='check_tab'>
+    <view class="tab_item {{currentTab==0 ? 'active' : ''}}" data-current='0' bindtap='swichTab'>综合</view>
+    <view class="tab_item {{currentTab==1 ? 'active' : ''}}" data-current='1' bindtap='swichTab'>佣金比例</view>
+    <view class="tab_item {{currentTab==2 ? 'arrow__active' : ''}}" data-current='2' bindtap='swichTab'>
+      价格
+       <view class='arrow_group' catchtap='sortList1' style='width:{{windowWidth/4}}px'>
+        <icon class="iconfont icon-arrowup {{sortActive2 ? 'arrow__active' : ''}}"></icon>
+        <icon class="iconfont icon-arrowdown-copy {{!sortActive2 ? 'arrow__active' : ''}}"></icon>
+      </view> 
+    </view>
+    <view class="tab_item {{currentTab==3 ? 'arrow__active' : ''}}" data-current='3' bindtap='swichTab'>销量
+      <view class='arrow_group' catchtap='sortList2' style='width:{{windowWidth/4}}px'>
+        <icon class="iconfont icon-arrowup {{sortActive3 ? 'arrow__active' : ''}}"></icon>
+        <icon class="iconfont icon-arrowdown-copy {{!sortActive3 ? 'arrow__active' : ''}}"></icon>
+      </view>
+    </view>
+  </view>
+  <view class="weui-cell weui-cell_switch switch_box">
+    <view class="weui-cell__bd"><image src='../../img/icon_yhq@2x.png'></image><text>仅显示优惠券商品</text></view>
+    <view class="weui-cell__ft">
+      <!-- <switch color="#3080f3" checked bindchange="switchChange"/> -->
+      <switch color="#3080f3" bindchange="switchChange"/>
+    </view>
+  </view>
+  <scroll-view scroll-y style="height: {{windowHeight}}px;" bindscrolltoupper="upper" bindscrolltolower="loadMore" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+    <view class="weui-panel__bd on">
+      <view class="weui-media-box list_item">
+        <block wx:for="{{searchList}}" wx:key="{{item.item_id}}" data-id="{{item.item_id}}" >
+          <navigator  url="/pages/details/index?item_id={{item.item_id}}&item_title={{item.item_title}}&item_price={{item.item_price}}&item_pic={{item.item_pic}}&coupon_info={{item.item_coupon.info}}&coupon_id={{item.item_coupon.coupon_id}}&coupon_amount={{item.item_coupon.amount}}&item_coupon={{item.item_coupon}}" class='list_item weui-media-box_appmsg'hover-class="weui-cell_active">
+            <view class='list_left'>
+              <image lazy-load src='{{item.item_pic}}'></image>
+            </view>
+            <view class='list_right'>
+              <view class='good_title'>
+                <!-- 淘宝图标 -->
+                <block wx:if="{{item.item_type == 0}}">
+                  <image lazy-load class='tm_icon' src='../../img/taobao.png'></image>
+                </block>
+                <!-- 天猫图标 -->
+                <block wx:else>
+                  <image lazy-load class='tm_icon' src='../../img/tm.png'></image>
+                </block>
+                <text>{{item.item_title}}</text>
+              </view>
+              <view class='old_price'>
+                <view>现价 {{item.item_price}}</view>
+                <view>月销 {{item.item_volume}}件</view>
+              </view>
+              <view class='now_price' wx:if="{{item.item_coupon}}">
+                 券后价 <text wx:if="{{item.item_coupon}}">{{filter.getPriceFormat(item.item_price - item.item_coupon.amount)}}</text><text wx:else>{{item.item_price}}</text>
+              </view>
+              <view class='now_price' wx:else>
+                 现价 <text wx:if="{{item.item_coupon}}">{{item.item_price}}</text><text wx:else>{{item.item_price}}</text>
+              </view>
+              <view class='progress_box' wx:if="{{item.item_coupon}}">
+                <text class='myAmount'>券 <text>{{item.item_coupon.amount}}元</text> </text><text class='lastAmount'>剩余{{item.item_coupon.total_count - item.item_coupon.remain_count}}张</text>
+              </view> 
+            </view>
+            <view class='navigator_line'></view>
+          </navigator>         
+        </block>
+        <placeholder style="width:100%" wx:if='{{!placeholder}}'>
+          <view>没有找到你要的商品</view>
+        </placeholder>
+      </view>  
+    </view>
+  </scroll-view>
+</view>
+
+<!-- <dialog id='dialog' wx:if="{{!islogin}}"
+  title='授权登录提示' 
+  content='访问此页面需要你的授权登录' 
+  cancelText='不用了' 
+  confirm='去授权'
+>
+</dialog> -->

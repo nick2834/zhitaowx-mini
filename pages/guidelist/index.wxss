@@ -1,0 +1,103 @@
+.page{
+  width: 100%;
+  margin: 0 auto;
+}
+.list{
+  position: relative;
+  /* padding-bottom: 30rpx; */
+  border-bottom: 1px solid #eaeaea;
+}
+.list-item{
+  padding: 0 26rpx;
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.list-item:last-child{
+  border: none
+}
+.list_left{
+  flex: .65;
+  position: relative
+}
+.list_right{
+  flex: .35;
+  position: relative
+}
+.list_title{
+  color: #323232;
+  font-weight: 600;
+  line-height: 80rpx;
+}
+.list_desc{
+  color: #333;
+  font-size: 26rpx;
+  margin-bottom: 30rpx;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+  -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+  -webkit-line-clamp: 2; /** 显示的行数 **/
+  overflow: hidden;  /** 隐藏超出的内容 **/
+}
+.share text{
+  font-size: 26rpx;
+  line-height: 30rpx;
+  padding-left: 10rpx;
+}
+.covers{
+  width: 275rpx;
+  height: 180rpx;
+  position: relative
+}
+.covers text{
+  position: absolute;
+  bottom: 12rpx;
+  right: 10rpx;
+  color: #ffffff;
+  font-weight: 200;
+  font-size: 24rpx;
+}
+.iconplay{
+  position: absolute;
+  width: 45rpx;
+  height: 45rpx;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%)
+}
+.contact{
+  position: fixed;
+  bottom: 0;
+  background: #ffffff;
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  font-size: 24rpx;
+  color: #848484;
+  display : flex ; 
+  flex-flow : row;
+  line-height: 60rpx;
+}
+.contact view{
+  width: 60%;
+  text-align: right
+}
+.opentype{
+  width: 40%;
+  background: transparent;
+  border: none;
+  text-align: left;
+  color: #327ff5;
+  font-size: 24rpx;
+  display: inline-block;
+  padding: 0
+}
+button::after{
+  border: none;
+}
+
+.share{
+  background: transparent;
+  display: inline
+}

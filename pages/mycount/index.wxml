@@ -1,0 +1,58 @@
+<view class="page">
+  <view class='head'>
+    <view class='money_box'>
+      <view class='nums'>
+        <view>可用佣金（元）</view>
+        <view class='mymoney'>{{account.money}}</view>
+      </view>
+    </view>
+    <view class='money_btn'>
+      <navigator url='/pages/mycount/withdraw/index?money={{account.money}}&fullname={{account.fullname}}' hover-class="none" class='shenq'>申请提现</navigator>
+      <navigator url='/pages/mycount/record/record' hover-class="none" class='record'>提现记录</navigator>
+    </view>
+  </view>
+  <view class='content'>
+    <view class='up'>
+      <view class='con_box up_l'>
+        <text class='cont_title'>累计佣金（元）</text>
+        <text class='con_money'>{{account.totalmoney}}</text>
+      </view>
+      <view class='con_box up_r'>
+        <text class='cont_title'>待确认佣金（元）</text>
+        <text class='con_money'>{{account.wait_money}}</text>
+      </view>
+    </view>
+    <view class='down'>
+      <view class='con_box down_l'>
+        <text class='cont_title'>提现中（元）</text>
+        <text class='con_money'>{{account.underway_money}}</text>
+      </view>
+      <view class='con_box down_r'>
+        <text class='cont_title'>已提现（元）</text>
+        <text class='con_money'>{{account.complete_money}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='ques_list'>
+    <navigator hover-class="none" class='list list1' url='/pages/mycount/acount/index?fullname={{account.fullname}}'>
+      <view class='list_title'>
+        <icon class='iconfont icon-zhanghu'><text>提现账户</text></icon>
+      </view>
+      <icon class='iconfont icon-previewright arrow' style='right:30rpx'></icon>
+    </navigator>
+    <navigator hover-class="none" class='list list2' url='/pages/user/question/index'>
+      <view class='list_title'>
+        <icon class='iconfont icon-question'><text>常见问题</text></icon>
+      </view>
+      <icon class='iconfont icon-previewright arrow' style='right:30rpx'></icon>
+    </navigator>
+  </view>
+</view>
+
+ <dialog id='dialog' wx:if="{{!islogin}}"
+  title='授权登录提示' 
+  content='访问此页面需要你的授权登录' 
+  cancelText='不用了' 
+  confirm='去授权'
+>
+</dialog>

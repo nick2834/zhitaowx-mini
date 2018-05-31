@@ -1,0 +1,250 @@
+page{
+  background: #fff
+}
+.search_box{
+  height: 84rpx;
+  background: #317df4;
+  background: #f2f2f2;
+  padding-top: 20rpx;
+}
+.search{
+  height: 64rpx;
+  /* border: 2px solid #e9e7e8; */
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 50rpx
+}
+.search_input{
+  height: 64rpx;
+  padding-left: 80rpx;
+  padding-right: 145rpx;
+  position: relative;
+  font-size: 30rpx
+}
+.search_icon{
+  color: #b2b2b2;
+  margin: 0 30rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 64rpx;
+}
+.search_btn{
+  position: absolute;
+  right: 0;
+  line-height: 64rpx;
+  color: #317ef2;
+  top: 0;
+  font-size: 28rpx;
+  text-align: center;
+  width: 145rpx;
+  border-left: 1px solid #e5e5e5;
+  font-weight: bold
+}
+.check_tab{
+  height: 78rpx;
+  border-bottom: 1px solid #e9e7e8; 
+  display: flex;
+  justify-content: space-between
+}
+.tab_item{
+  flex: .25;
+  text-align: center;
+  line-height: 78rpx;
+  font-size: 30rpx;
+  position: relative
+}
+.tab_item.arrow__active{
+  color: #317df4;
+  font-weight: bold
+}
+.tab_item.active{
+  font-weight: bold;
+  color: #317ef2;
+  border-bottom: 2px solid #317ef2
+}
+.arrow_group{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  line-height: 5rpx;
+  height: 78rpx; 
+}
+.arrow_group .iconfont{
+  line-height: 39rpx;
+  font-size: 40rpx;
+  position: absolute;
+  right: 25rpx;
+  color: #ccc
+}
+.arrow_group .iconfont:first-child{
+  
+  top: 0;
+}
+.arrow_group .iconfont:last-child{
+  bottom: 10rpx; 
+}
+.arrow_group .iconfont.arrow__active{
+  color: #317ef2
+}
+.switch_box{
+  font-size: 28rpx;
+  border-bottom: 1px solid #eaeaea
+}
+.switch_box:before{top:0;border-top:none}
+.switch_box .weui-cell__bd{
+  line-height: 50rpx;
+  position: relative;
+  display: flex;
+  align-items: center
+}
+.switch_box .weui-cell__bd image{
+  width: 35rpx;
+  height: 25rpx;
+}
+.switch_box .weui-cell__bd text{
+  margin-left: 10rpx
+}
+.list_item{
+  position: relative;
+  margin-bottom: 20rpx;
+}
+.list_left{
+  position: absolute;
+  top:4px;
+}
+.list_left image{
+  width: 200rpx;
+  height: 200rpx;
+}
+.list_right{
+  float: right;
+  width: 100%;
+  margin-left: 230rpx;
+  height: 200rpx;
+  display: flex;
+  flex-direction: column;
+}
+.good_title{
+  position: relative;
+  line-height: 50rpx;
+}
+.good_title image{
+  width: 32rpx;
+  height: 32rpx;
+  position:absolute;
+  top:10rpx;
+}
+.good_title text{
+  color: #333;
+  font-size: 28rpx;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  text-indent: 40rpx
+}
+.old_price{
+  display: flex;
+  color: #b6b6b6;
+  font-size: 26rpx;
+  justify-content: space-around;
+  text-align: right;
+  margin-top: 15rpx
+}
+.old_price view{
+  flex: .5
+}
+.old_price view:first-child{
+  text-align: left
+}
+.now_price{
+  color: #b6b6b6;
+  font-size: 26rpx;
+}
+.now_price text{
+  color: #333;
+  /* font-weight: bold; */
+  font-size: 36rpx;
+}
+.progress_box{
+  width: 100%;
+  height: 40rpx;
+  position: absolute;
+  font-size: 26rpx;
+  bottom: 0
+}
+.myAmount{
+  border:1px solid #ff681d;
+  background: #ff681d;
+  color:#fff;
+  padding-left:10rpx;
+  font-size:26rpx;
+  box-sizing:border-box;
+  border-radius:6rpx;
+}
+.myAmount text{
+  background: #fff;
+  color: #ff681d;
+  padding: 0 10rpx
+}
+.navigator_line{
+  position: absolute;
+  bottom: -20rpx;
+  height: 1rpx;
+  width: 100%;
+  left: 200rpx;
+  background: #e5e5e5
+}
+.lastAmount{
+  margin-left: 20rpx;
+  color: #b6b6b6;
+  font-size: 26rpx
+}
+.progress_box .nums{
+  position: absolute;
+  font-size: 20rpx;
+  top: 0;
+  color: #fff
+}
+.active_progress{
+  height: inherit;
+  background: #649df6;
+  background: #f5a631;
+  border-radius: 20rpx;
+  color: #fff;
+  line-height: 35rpx;
+  font-size: 20rpx;
+  position: relative;
+}
+.active_progress text{
+  margin-left: 10rpx;
+}
+.active_progress text.nums{
+  position: absolute;
+  right: 10rpx;
+}
+.weui-panel__bd{
+  /* border-bottom: 1px solid #f3f3f3; */
+  display: none
+}
+.on{
+  display: block
+}
+
+.wx-switch-input{
+width:82rpx !important;
+height:48rpx !important;
+}
+/*白色样式（false的样式）*/
+.wx-switch-input::before{
+width:80rpx !important;
+height: 44rpx !important;
+}
+/*绿色样式（true的样式）*/
+.wx-switch-input::after{
+width: 40rpx !important;
+height: 44rpx !important;
+}

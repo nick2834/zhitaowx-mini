@@ -1,0 +1,13 @@
+{
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "商品详情",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "bold",
+  "disableScroll": false,
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "placeholder": "../../components/placeholder/index",
+    "dialog": "../../components/identity/index"
+  }
+}
